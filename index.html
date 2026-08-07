@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincenzo Gabriele Florio | Cybersecurity & Dev Portfolio</title>
+    <meta name="description" content="Portfolio di Vincenzo Gabriele Florio, laureando in Informatica con passioni per Cybersecurity, Docker, networking di container e sistemi Linux.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Canvas for Matrix effect -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <span>&lt;VFlorio /&gt;</span>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links-list">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Progetti & Tesi</a></li>
+            <li><a href="contact.html">Contatti</a></li>
+        </ul>
+    </header>
+
+    <!-- Main Content -->
+    <main class="fade-in">
+        <!-- Hero Section -->
+        <section class="container-flex-center">
+            <h1 class="hero-name">Vincenzo Gabriele Florio</h1>
+            <div class="hero-subtitle typing-cursor" id="typing-text"></div>
+            <p class="hero-desc">
+                Laureando in Informatica presso l'Università degli Studi di Catania. Appassionato di 
+                <strong>cybersecurity</strong>, <strong>containerizzazione</strong>, sistemi <strong>Linux</strong> e sviluppo software.
+            </p>
+            <div class="btn-group">
+                <a href="projects.html" class="btn btn-primary"><i class="fa-solid fa-code"></i> Vedi Progetti</a>
+                <a href="contact.html" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contattami</a>
+            </div>
+        </section>
+
+        <!-- Profile & Biography (Terminal Card) -->
+        <section class="terminal-card">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">user@vflorio:~$ cat about_me.md</div>
+                <div></div>
+            </div>
+            <div class="terminal-body">
+                <h2 style="font-family: var(--font-mono); font-size: 1.25rem; color: var(--neon-cyan); margin-bottom: 1rem;">
+                    # Profilo Professionale
+                </h2>
+                <p style="margin-bottom: 1.25rem; color: var(--text-secondary);">
+                    Il mio percorso universitario e lo sviluppo del mio progetto di tesi mi hanno permesso di specializzarmi 
+                    nella configurazione di ambienti containerizzati complessi, nell'analisi di scenari di vulnerabilità reali 
+                    e nella conduzione di test di attacco in ambienti di laboratorio controllati.
+                </p>
+                <p style="color: var(--text-secondary);">
+                    Credo fermamente nell'apprendimento pratico, nella documentazione rigorosa e nella progettazione sicura delle infrastrutture. 
+                    Oltre allo studio teorico, mi dedico alla risoluzione di CTF (Capture The Flag), allo studio dell'hardware PC 
+                    e alla virtualizzazione di sistemi operativi.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience and Education (Terminal Card) -->
+        <section class="terminal-card">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">user@vflorio:~$ ./display_timeline.sh</div>
+                <div></div>
+            </div>
+            <div class="terminal-body" style="display: flex; flex-direction: column; gap: 2rem;">
+                
+                <!-- Education 1 -->
+                <div>
+                    <h3 style="font-family: var(--font-mono); font-size: 1.15rem; color: var(--neon-green); margin-bottom: 0.5rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                        <span>Universita' degli Studi di Catania</span>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">2020 -- Presente</span>
+                    </h3>
+                    <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                        Laurea Triennale in Informatica
+                    </p>
+                    <ul style="list-style-position: inside; color: var(--text-secondary); padding-left: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <li>Data di laurea prevista: <strong>25/09/2026</strong>.</li>
+                        <li>Ambito di studio primario: <strong>Cybersecurity, Reti e Sistemi</strong>.</li>
+                        <li>Progetto di Tesi: <em>Tecnologie di containerizzazione e orchestrazione - Vulnerable Lab</em>.</li>
+                    </ul>
+                </div>
+
+                <!-- Work Experience 1 -->
+                <div>
+                    <h3 style="font-family: var(--font-mono); font-size: 1.15rem; color: var(--neon-purple); margin-bottom: 0.5rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                        <span>AVIS Comunale di Catania</span>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">06/2023 -- 06/2024</span>
+                    </h3>
+                    <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
+                        Operatore di Servizio Civile Universale / Assistente
+                    </p>
+                    <ul style="list-style-position: inside; color: var(--text-secondary); padding-left: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <li>Accoglienza, assistenza ed orientamento dei donatori di sangue.</li>
+                        <li>Supporto logistico e organizzativo alle attività quotidiane della struttura.</li>
+                        <li>Gestione ed ottimizzazione della comunicazione interna e con il pubblico.</li>
+                    </ul>
+                </div>
+
+                <!-- High School -->
+                <div>
+                    <h3 style="font-family: var(--font-mono); font-size: 1.15rem; color: var(--text-muted); margin-bottom: 0.5rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                        <span>Liceo Scientifico Galileo Galilei (Catania)</span>
+                        <span style="color: var(--text-muted); font-size: 0.9rem;">2015 -- 2020</span>
+                    </h3>
+                    <p style="font-weight: 600; color: var(--text-primary);">
+                        Diploma di Liceo Scientifico (Indirizzo Linguistico)
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <h2 class="section-title">competenze_tecniche</h2>
+            <div class="skills-grid">
+                
+                <!-- Category 1 -->
+                <div class="skill-category">
+                    <h3>&gt;_ Linguaggi</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">HTML5 / CSS3</span>
+                        <span class="skill-tag">Bash Scripting</span>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="skill-category">
+                    <h3>&gt;_ DevOps & Security</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Docker Compose</span>
+                        <span class="skill-tag">Linux Systems</span>
+                        <span class="skill-tag">AppSec Testing</span>
+                        <span class="skill-tag">Container Isolation</span>
+                        <span class="skill-tag">Network Security</span>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="skill-category">
+                    <h3>&gt;_ Virtualizzazione & Tech</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">VMware ESXi / Workstation</span>
+                        <span class="skill-tag">VirtualBox</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">LaTeX</span>
+                        <span class="skill-tag">Sysadmin Ess.</span>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="skill-category">
+                    <h3>&gt;_ Interessi Extra</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">CTF Challenges</span>
+                        <span class="skill-tag">PC Hardware Assembly</span>
+                        <span class="skill-tag">Virtualization Labs</span>
+                        <span class="skill-tag">Network Architectures</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                &copy; 2026 Vincenzo Gabriele Florio. Built with HTML/CSS/JS.
+            </div>
+            <div style="display: flex; gap: 1.5rem; font-size: 1.1rem;">
+                <a href="https://github.com/GabrieleFlorio28" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:Gabriele.Florio28@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

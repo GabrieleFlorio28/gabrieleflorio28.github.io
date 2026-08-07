@@ -1,0 +1,848 @@
+/* 
+   ==========================================================================
+   DESIGN SYSTEM - Vincenzo Gabriele Florio Portfolio
+   Theme: Cybersecurity / Tech Terminal Dark Mode with Neon Accents
+   ========================================================================== 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    /* Color Palette */
+    --bg-darker: #050608;
+    --bg-dark: #0a0c10;
+    --bg-card: rgba(13, 17, 23, 0.7);
+    --border-color: rgba(0, 240, 255, 0.15);
+    
+    /* Neon Accents */
+    --neon-cyan: #00f0ff;
+    --neon-green: #00ff66;
+    --neon-purple: #bd00ff;
+    
+    /* Text Colors */
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    /* Fonts */
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
+    
+    /* Box Shadows & Glows */
+    --glow-cyan: 0 0 15px rgba(0, 240, 255, 0.35);
+    --glow-green: 0 0 15px rgba(0, 255, 102, 0.35);
+    --glow-purple: 0 0 15px rgba(189, 0, 255, 0.35);
+    
+    --shadow-inset: inset 0 0 10px rgba(0, 240, 255, 0.05);
+    
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Base Reset & Layouts
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+/* Background Canvas */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.15; /* Subtle background pattern */
+}
+
+/* CRT Scanline Overlay Effect */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 0, 0.06));
+    z-index: 9999;
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* ==========================================================================
+   Typography & Links
+   ========================================================================== */
+
+a {
+    color: var(--neon-cyan);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--text-primary);
+    text-shadow: var(--glow-cyan);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+code, pre, .terminal-text {
+    font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5, 6, 8, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-logo {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--neon-green);
+    text-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.nav-links a::before {
+    content: "> ";
+    color: var(--neon-cyan);
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.nav-links a:hover::before, .nav-links a.active::before {
+    opacity: 1;
+}
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Main Containers & Grid Layouts
+   ========================================================================== */
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.container-flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Terminal Card Layouts
+   ========================================================================== */
+
+.terminal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--shadow-inset);
+    backdrop-filter: blur(8px);
+    transition: var(--transition-normal);
+    margin-bottom: 2rem;
+}
+
+.terminal-card:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.terminal-header {
+    background: rgba(10, 12, 16, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.terminal-title {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.terminal-body {
+    padding: 1.75rem;
+    position: relative;
+}
+
+/* ==========================================================================
+   Hero Section & Home Styles
+   ========================================================================== */
+
+.hero-name {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 30%, var(--neon-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--neon-green);
+    text-shadow: 0 0 8px rgba(0, 255, 102, 0.2);
+    margin-bottom: 1.5rem;
+    min-height: 2.2rem;
+}
+
+.hero-desc {
+    max-width: 600px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Interactive Buttons */
+.btn-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-family: var(--font-mono);
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: inset 0 0 4px rgba(0, 240, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-darker);
+    box-shadow: var(--glow-cyan);
+    text-shadow: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-purple);
+    box-shadow: inset 0 0 4px rgba(189, 0, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: var(--neon-purple);
+    color: var(--text-primary);
+    box-shadow: var(--glow-purple);
+}
+
+/* Skills Grid */
+.skills-section {
+    margin-top: 5rem;
+    width: 100%;
+}
+
+.section-title {
+    font-family: var(--font-mono);
+    font-size: 1.75rem;
+    color: var(--neon-cyan);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title::before {
+    content: "##";
+    color: var(--neon-purple);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-category {
+    background: rgba(13, 17, 23, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: var(--transition-fast);
+}
+
+.skill-category:hover {
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.skill-category h3 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+    color: var(--neon-green);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill-tag {
+    background: rgba(0, 240, 255, 0.05);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    color: var(--text-primary);
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    transition: var(--transition-fast);
+}
+
+.skill-tag:hover {
+    border-color: var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Projects & Thesis Page Styles
+   ========================================================================== */
+
+.project-hero {
+    margin-bottom: 4rem;
+}
+
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    background: rgba(5, 6, 8, 0.5);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.meta-item {
+    font-size: 0.95rem;
+}
+
+.meta-item strong {
+    display: block;
+    color: var(--neon-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.lab-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-top: 3rem;
+}
+
+@media (max-width: 992px) {
+    .lab-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SVG Interactive Network Diagram CSS */
+.diagram-container {
+    background: #06080b;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: var(--shadow-inset);
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.diagram-svg-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diagram-caption {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+/* Interactive SVG styling */
+.svg-node {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.svg-node circle {
+    stroke-width: 2px;
+    transition: var(--transition-fast);
+}
+
+.svg-node text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    fill: var(--text-primary);
+    text-anchor: middle;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Active & Hover states for SVG nodes */
+.svg-node:hover circle {
+    stroke-width: 3px;
+    filter: drop-shadow(0px 0px 8px currentColor);
+}
+
+.svg-node.active circle {
+    stroke-width: 4px;
+    filter: drop-shadow(0px 0px 12px currentColor);
+}
+
+.svg-edge {
+    stroke-dasharray: 4;
+    animation: dash 15s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -100;
+    }
+}
+
+/* Details Panel next to diagram */
+.details-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.placeholder-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    color: var(--text-muted);
+    border: 1px dashed rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.placeholder-detail i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--border-color);
+}
+
+.active-detail {
+    display: none;
+    animation: fadeIn var(--transition-normal);
+}
+
+.active-detail.show {
+    display: block;
+}
+
+.detail-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.detail-header h3 {
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+}
+
+.detail-network {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--neon-purple);
+    margin-top: 0.25rem;
+}
+
+.detail-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.detail-tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-vuln-box {
+    background: rgba(255, 95, 86, 0.05);
+    border: 1px solid rgba(255, 95, 86, 0.2);
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-vuln-box strong {
+    color: #ff5f56;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Contact Page Styles
+   ========================================================================== */
+
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 868px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 240, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--neon-cyan);
+    transition: var(--transition-fast);
+}
+
+.contact-item:hover .contact-icon {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+    color: var(--text-primary);
+}
+
+.contact-text h4 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.contact-text p, .contact-text a {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.form-control {
+    background: rgba(5, 6, 8, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.15), var(--shadow-inset);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Form feedback alerts */
+.alert {
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    display: none;
+}
+
+.alert-success {
+    background: rgba(0, 255, 102, 0.05);
+    border: 1px solid rgba(0, 255, 102, 0.3);
+    color: var(--neon-green);
+}
+
+.alert-error {
+    background: rgba(255, 95, 86, 0.05);
+    border: 1px solid rgba(255, 95, 86, 0.3);
+    color: #ff5f56;
+}
+
+/* ==========================================================================
+   Footer Layout
+   ========================================================================== */
+
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-darker);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+.footer-text {
+    font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   Animations & Utilities
+   ========================================================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn var(--transition-normal) forwards;
+}
+
+/* Typing Cursor Effect */
+.typing-cursor::after {
+    content: "_";
+    animation: blink 1s step-end infinite;
+    color: var(--neon-green);
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Mobile Media Queries Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none; /* In a real project we'd use JS to toggle, but we keep links responsive */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 6, 8, 0.95);
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        gap: 1.25rem;
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    
+    main {
+        padding: 2rem 1rem;
+    }
+}

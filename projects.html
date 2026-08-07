@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti & Tesi | Vincenzo Gabriele Florio</title>
+    <meta name="description" content="Dettagli del progetto di tesi 'Vulnerable Lab' - un laboratorio didattico containerizzato con Docker per lo studio delle vulnerabilità di sicurezza.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Canvas for Matrix effect -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <span>&lt;VFlorio /&gt;</span>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Progetti & Tesi</a></li>
+            <li><a href="contact.html">Contatti</a></li>
+        </ul>
+    </header>
+
+    <!-- Main Content -->
+    <main class="fade-in">
+        
+        <!-- Project Hero Section -->
+        <section class="project-hero">
+            <h1 class="hero-name" style="font-size: 2.75rem;">Progetto di Tesi</h1>
+            <h2 style="font-family: var(--font-mono); font-size: 1.5rem; color: var(--neon-cyan); margin-bottom: 1.5rem;">
+                Vulnerable Lab -- Laboratorio Didattico Containerizzato
+            </h2>
+            <p style="color: var(--text-secondary); max-width: 800px; font-size: 1.05rem;">
+                Un ambiente multi-container controllato, progettato con Docker e Docker Compose, volto a facilitare l'apprendimento 
+                delle vulnerabilità di rete e applicative più comuni, nonché delle relative contromisure ed analisi difensive.
+            </p>
+
+            <!-- Metadata Table / Grid -->
+            <div class="project-meta-grid">
+                <div class="meta-item">
+                    <strong>TIPO DI PROGETTO</strong>
+                    Tesi di Laurea Triennale in Informatica
+                </div>
+                <div class="meta-item">
+                    <strong>DATA DI LAUREA</strong>
+                    25 Settembre 2026
+                </div>
+                <div class="meta-item">
+                    <strong>TECNOLOGIE CHIAVE</strong>
+                    Docker, Docker Compose, Nginx, Linux, Python
+                </div>
+                <div class="meta-item">
+                    <strong>UNIVERSITÀ</strong>
+                    Università degli Studi di Catania
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Detail Section (Abstract) -->
+        <section class="terminal-card">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">user@vflorio:~$ cat tesi_abstract.txt</div>
+                <div></div>
+            </div>
+            <div class="terminal-body">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; line-height: 1.7;">
+                    La containerizzazione occupa oggi un ruolo centrale nello sviluppo e nella distribuzione del software: permette di eseguire servizi in ambienti isolati, riproducibili e trasferibili tra sistemi differenti. L'uso dei container, tuttavia, non rende un'applicazione automaticamente sicura. Vulnerabilità nel codice, configurazioni errate e scelte di isolamento poco rigorose possono compromettere l'intero ambiente.
+                </p>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; line-height: 1.7;">
+                    <strong>Vulnerable Lab</strong> è un laboratorio didattico multi-container in cui osservare alcune vulnerabilità applicative e infrastrutturali in condizioni controllate. Ogni scenario è eseguito da un servizio distinto e collocato in una rete virtuale dedicata, limitando le comunicazioni ed evitando che la compromissione di un singolo servizio si estenda all'intero host.
+                </p>
+                <p style="color: var(--text-secondary); text-align: justify; line-height: 1.7;">
+                    La validazione combina test manuali di attacco, l'ispezione dello stato dei container tramite API Docker ed uno script automatico di test. Il risultato è uno strumento leggero e riproducibile per comprendere praticamente la relazione tra codice debole, configurazioni di rete e politiche di isolamento.
+                </p>
+            </div>
+        </section>
+
+        <!-- Interactive Lab Architecture Diagram -->
+        <section style="margin-top: 4rem;">
+            <h2 class="section-title">esplora_architettura_lab</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 800px;">
+                Fai clic su un nodo del diagramma di rete interattivo per visualizzare i dettagli tecnici di quel container, inclusi gli scenari di vulnerabilità simulati, i metodi di attacco ed i meccanismi difensivi implementati.
+            </p>
+
+            <div class="lab-section">
+                <!-- SVG Network Diagram Container -->
+                <div class="diagram-container">
+                    <div class="diagram-svg-wrapper">
+                        <svg viewBox="0 0 500 400" width="100%" height="100%" id="network-svg">
+                            <!-- Definition for arrows/markers -->
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="18" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Subnet Connection Edges (Lines) -->
+                            <!-- Proxy to Scenarios (Cyan Subnet Network lines) -->
+                            <line x1="250" y1="60" x2="100" y2="160" stroke="#00f0ff" stroke-width="1.5" class="svg-edge" />
+                            <line x1="250" y1="60" x2="400" y2="160" stroke="#00f0ff" stroke-width="1.5" class="svg-edge" />
+                            <line x1="250" y1="60" x2="130" y2="280" stroke="#00f0ff" stroke-width="1.5" class="svg-edge" />
+                            <line x1="250" y1="60" x2="370" y2="280" stroke="#00f0ff" stroke-width="1.5" class="svg-edge" />
+
+                            <!-- Testing Script connection (Purple lines representing test scripts probing scenarios) -->
+                            <line x1="250" y1="360" x2="100" y2="160" stroke="#bd00ff" stroke-width="1.2" stroke-dasharray="3" />
+                            <line x1="250" y1="360" x2="400" y2="160" stroke="#bd00ff" stroke-width="1.2" stroke-dasharray="3" />
+                            <line x1="250" y1="360" x2="130" y2="280" stroke="#bd00ff" stroke-width="1.2" stroke-dasharray="3" />
+                            <line x1="250" y1="360" x2="370" y2="280" stroke="#bd00ff" stroke-width="1.2" stroke-dasharray="3" />
+
+                            <!-- Nodes -->
+                            <!-- 1. Gateway/Proxy -->
+                            <g class="svg-node" data-target="node-proxy" id="node-proxy">
+                                <circle cx="250" cy="60" r="24" fill="#050608" stroke="#00f0ff" style="color: #00f0ff;" />
+                                <text x="250" y="64" font-size="9">Nginx Gateway</text>
+                            </g>
+
+                            <!-- 2. SQLi Scenario -->
+                            <g class="svg-node" data-target="node-sqli" id="node-sqli">
+                                <circle cx="100" cy="160" r="22" fill="#050608" stroke="#ff5f56" style="color: #ff5f56;" />
+                                <text x="100" y="164" font-size="9">SQLi App</text>
+                            </g>
+
+                            <!-- 3. Broken Authentication Scenario -->
+                            <g class="svg-node" data-target="node-auth" id="node-auth">
+                                <circle cx="400" cy="160" r="22" fill="#050608" stroke="#ff5f56" style="color: #ff5f56;" />
+                                <text x="400" y="164" font-size="9">Broken Auth</text>
+                            </g>
+
+                            <!-- 4. Privilege Escalation Scenario -->
+                            <g class="svg-node" data-target="node-privilege" id="node-privilege">
+                                <circle cx="130" cy="280" r="22" fill="#050608" stroke="#ff5f56" style="color: #ff5f56;" />
+                                <text x="130" y="284" font-size="9">Priv Escalation</text>
+                            </g>
+
+                            <!-- 5. Misconfiguration Scenario -->
+                            <g class="svg-node" data-target="node-misconfig" id="node-misconfig">
+                                <circle cx="370" cy="280" r="22" fill="#050608" stroke="#ff5f56" style="color: #ff5f56;" />
+                                <text x="370" y="284" font-size="9">Misconfig</text>
+                            </g>
+
+                            <!-- 6. Testing script -->
+                            <g class="svg-node" data-target="node-tester" id="node-tester">
+                                <circle cx="250" cy="360" r="22" fill="#050608" stroke="#00ff66" style="color: #00ff66;" />
+                                <text x="250" y="364" font-size="9">Test Script</text>
+                            </g>
+
+                            <!-- Subnet labels -->
+                            <text x="140" y="100" fill="#94a3b8" font-size="8" font-family="monospace">subnet_sqli</text>
+                            <text x="340" y="100" fill="#94a3b8" font-size="8" font-family="monospace">subnet_auth</text>
+                            <text x="130" y="220" fill="#94a3b8" font-size="8" font-family="monospace">subnet_priv</text>
+                            <text x="350" y="220" fill="#94a3b8" font-size="8" font-family="monospace">subnet_config</text>
+                        </svg>
+                    </div>
+                    <div class="diagram-caption">
+                        <i class="fa-solid fa-circle-info"></i> Clicca sui nodi per analizzare i dettagli del container
+                    </div>
+                </div>
+
+                <!-- Info Details Panel -->
+                <div class="terminal-card" style="margin-bottom: 0; min-height: 400px;">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="terminal-title">user@vflorio:~$ ./inspect_container.sh</div>
+                        <div></div>
+                    </div>
+                    <div class="terminal-body details-panel">
+                        
+                        <!-- Placeholder (Visible when no node is selected) -->
+                        <div class="placeholder-detail" id="details-placeholder">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <p style="font-family: var(--font-mono); font-size: 0.9rem;">
+                                Seleziona un container nel diagramma a sinistra per ispezionare lo stato del servizio, la configurazione della rete ed il focus della vulnerabilità.
+                            </p>
+                        </div>
+
+                        <!-- 1. Nginx Gateway Details -->
+                        <div class="active-detail" id="detail-node-proxy">
+                            <div class="detail-header">
+                                <h3>Reverse Proxy (Gateway)</h3>
+                                <div class="detail-network">Rete: external_net & subnets</div>
+                            </div>
+                            <p class="detail-desc">
+                                Funge da unico punto d'accesso pubblico verso il laboratorio. Riceve le connessioni degli utenti esterni e le instrada, tramite regole di proxy-pass, ai corrispondenti container interni basandosi sul percorso URL.
+                            </p>
+                            <div class="detail-tech-stack">
+                                <span class="skill-tag">Nginx</span>
+                                <span class="skill-tag">Docker network</span>
+                            </div>
+                            <div class="detail-vuln-box" style="background: rgba(0, 240, 255, 0.05); border-color: rgba(0, 240, 255, 0.2);">
+                                <strong style="color: var(--neon-cyan);">MISURA DI SICUREZZA: ISOLAMENTO DEL NETWORK</strong>
+                                Nginx è l'unico container connesso sia ad internet sia alle reti interne dei singoli scenari. Gli scenari applicativi non possono comunicare tra loro né con l'esterno, prevenendo attacchi laterali qualora un container venga compromesso.
+                            </div>
+                        </div>
+
+                        <!-- 2. SQLi App Details -->
+                        <div class="active-detail" id="detail-node-sqli">
+                            <div class="detail-header">
+                                <h3>SQL Injection Scenario</h3>
+                                <div class="detail-network">Rete: subnet_sqli | IP: 10.10.1.2</div>
+                            </div>
+                            <p class="detail-desc">
+                                Web app vulnerabile in cui i parametri di ricerca o di login inviati dall'utente vengono concatenati direttamente in una query SQL senza alcuna sanitizzazione o parametrizzazione.
+                            </p>
+                            <div class="detail-tech-stack">
+                                <span class="skill-tag">Python (Flask)</span>
+                                <span class="skill-tag">SQLite</span>
+                            </div>
+                            <div class="detail-vuln-box">
+                                <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                                Inserendo payload SQL (es. <code>' OR '1'='1</code>) nei campi di input, l'attaccante aggira il controllo di login ed estrae credenziali o bypassa la verifica di autenticazione.
+                                <br><br>
+                                <strong>MITIGAZIONE:</strong> Implementazione di Prepared Statements (query parametrizzate) per separare rigidamente la logica di programmazione dai dati inseriti dall'utente.
+                            </div>
+                        </div>
+
+                        <!-- 3. Broken Authentication Details -->
+                        <div class="active-detail" id="detail-node-auth">
+                            <div class="detail-header">
+                                <h3>Broken Authentication</h3>
+                                <div class="detail-network">Rete: subnet_auth | IP: 10.10.2.2</div>
+                            </div>
+                            <p class="detail-desc">
+                                Gestione delle sessioni insicura o logica di autenticazione debole, che permette a terzi di rubare o indovinare i token utente.
+                            </p>
+                            <div class="detail-tech-stack">
+                                <span class="skill-tag">Node.js / Python</span>
+                                <span class="skill-tag">JWT</span>
+                            </div>
+                            <div class="detail-vuln-box">
+                                <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                                I token di sessione (o JSON Web Token) sono firmati con chiavi deboli (bruteforceable) o configurati in modo tale che il server accetti algoritmi di firma nulli (<code>"alg": "none"</code>). L'attaccante può forgiare token amministrativi validi modificando il payload e firmandolo autonomamente.
+                                <br><br>
+                                <strong>MITIGAZIONE:</strong> Firma dei JWT tramite chiavi crittografiche robuste custodite in variabili d'ambiente protette, e imposizione forzata di algoritmi di crittografia sicuri lato server.
+                            </div>
+                        </div>
+
+                        <!-- 4. Privilege Escalation Details -->
+                        <div class="active-detail" id="detail-node-privilege">
+                            <div class="detail-header">
+                                <h3>Privilege Escalation / Socket Mounting</h3>
+                                <div class="detail-network">Rete: subnet_priv | IP: 10.10.3.2</div>
+                            </div>
+                            <p class="detail-desc">
+                                Uno scenario infrastrutturale critico che illustra l'impatto del montaggio non sicuro di risorse sensibili dell'host (come il socket di Docker) all'interno di un container non privilegiato.
+                            </p>
+                            <div class="detail-tech-stack">
+                                <span class="skill-tag">Docker Daemon</span>
+                                <span class="skill-tag">Alpine Linux</span>
+                            </div>
+                            <div class="detail-vuln-box">
+                                <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                                Il volume montato <code>/var/run/docker.sock</code> permette al software all'interno del container di inviare comandi direttamente al demone Docker dell'host. Un utente malintenzionato che compromette questo container può lanciare un nuovo container con privilegi di root, montando il disco root dell'host (<code>/</code>) ed ottenendo così il controllo totale della macchina fisica/virtuale ospitante.
+                                <br><br>
+                                <strong>MITIGAZIONE:</strong> Evitare l'esposizione del socket Docker nei container. Utilizzare API astratte o proxy sicuri (come Socat) limitati in sola lettura, e applicare principi di Least Privilege (es. container rootless).
+                            </div>
+                        </div>
+
+                        <!-- 5. Misconfiguration Details -->
+                        <div class="active-detail" id="detail-node-misconfig">
+                            <div class="detail-header">
+                                <h3>Security Misconfiguration</h3>
+                                <div class="detail-network">Rete: subnet_config | IP: 10.10.4.2</div>
+                            </div>
+                            <p class="detail-desc">
+                                Configurazione errata di servizi di sistema, come file system esposti, interfacce di amministrazione prive di password, o modalità debug attive in produzione.
+                            </p>
+                            <div class="detail-tech-stack">
+                                <span class="skill-tag">Apache / Nginx</span>
+                                <span class="skill-tag">Config Files</span>
+                            </div>
+                            <div class="detail-vuln-box">
+                                <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                                Directory Listing abilitato sul server web, accoppiato ad un database di backup non protetto lasciato accidentalmente nella cartella pubblica. L'attaccante può navigare l'albero delle directory del server tramite browser e scaricare file riservati (es. file <code>.env</code> o backup SQL).
+                                <br><br>
+                                <strong>MITIGAZIONE:</strong> Disabilitare rigorosamente il listing delle directory (<code>autoindex off;</code>), ripulire i server di produzione dai file temporanei o di backup e disattivare i messaggi di errore dettagliati.
+                            </div>
+                        </div>
+
+                        <!-- 6. Testing Script Details -->
+                        <div class="active-detail" id="detail-node-tester">
+                            <div class="detail-header">
+                                <h3>Script Automatico di Test</h3>
+                                <div class="detail-network">Rete: test_net (connesso alle singole subnets)</div>
+                            </div>
+                            <p class="detail-desc">
+                                Uno script Python automatizzato implementato nel laboratorio per verificare l'effettiva presenza delle vulnerabilità, convalidare i canali di exploit e testare la robustezza dei container.
+                            </p>
+                            <div class="detail-tech-stack">
+                                <span class="skill-tag">Python 3</span>
+                                <span class="skill-tag">Requests Lib</span>
+                                <span class="skill-tag">Docker SDK</span>
+                            </div>
+                            <div class="detail-vuln-box" style="background: rgba(0, 255, 102, 0.05); border-color: rgba(0, 255, 102, 0.2);">
+                                <strong style="color: var(--neon-green);">VERIFICA E VALIDAZIONE</strong>
+                                Lo script esegue automaticamente richieste HTTP con payload d'attacco verificando la risposta ricevuta. Esegue inoltre chiamate dirette all'API del demone Docker per sincerarsi che l'isolamento tra subnets sia costantemente rispettato e che i container abbiano privilegi limitati.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                &copy; 2026 Vincenzo Gabriele Florio. Built with HTML/CSS/JS.
+            </div>
+            <div style="display: flex; gap: 1.5rem; font-size: 1.1rem;">
+                <a href="https://github.com/GabrieleFlorio28" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:Gabriele.Florio28@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/diagram.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progetti & Tesi | Vincenzo Gabriele Florio</title>
-    <meta name="description" content="Dettagli del progetto di tesi 'Vulnerable Lab' - un laboratorio didattico containerizzato con Docker per lo studio delle vulnerabilità di sicurezza.">
+    <meta name="description" content="Dettagli del progetto di tesi 'Vulnerable Lab' - un laboratorio didattico containerizzato con Docker per lo studio delle vulnerabilità di sicurezza. Di Vincenzo Gabriele Florio, Dottore di Primo Livello in Informatica.">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- CSS Stylesheet -->
@@ -18,9 +18,10 @@
 
     <!-- Header / Navigation -->
     <header class="navbar">
-        <div class="nav-logo">
-            <span>&lt;VFlorio /&gt;</span>
-        </div>
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon">VF</div>
+            <div class="logo-text">Gabriele <span class="logo-accent">Florio</span></div>
+        </a>
         <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle-btn">
             <i class="fa-solid fa-bars"></i>
         </button>
@@ -35,7 +36,7 @@
     <main class="fade-in">
         
         <!-- Project Hero Section -->
-        <section class="project-hero">
+        <section class="project-hero reveal">
             <h1 class="hero-name" style="font-size: 2.75rem;">Progetto di Tesi</h1>
             <h2 style="font-family: var(--font-mono); font-size: 1.5rem; color: var(--neon-cyan); margin-bottom: 1.5rem;">
                 Vulnerable Lab -- Laboratorio Didattico Containerizzato
@@ -67,14 +68,14 @@
         </section>
 
         <!-- Project Detail Section (Abstract) -->
-        <section class="terminal-card">
+        <section class="terminal-card reveal">
             <div class="terminal-header">
                 <div class="terminal-dots">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                 </div>
-                <div class="terminal-title">user@vflorio:~$ cat tesi_abstract.txt</div>
+                <div class="terminal-title">tesi_abstract.txt</div>
                 <div></div>
             </div>
             <div class="terminal-body">
@@ -91,7 +92,7 @@
         </section>
 
         <!-- Interactive Lab Architecture Diagram -->
-        <section style="margin-top: 4rem;">
+        <section style="margin-top: 4rem;" class="reveal">
             <h2 class="section-title">esplora_architettura_lab</h2>
             <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 800px;">
                 Fai clic su un nodo del diagramma di rete interattivo per visualizzare i dettagli tecnici di quel container, inclusi gli scenari di vulnerabilità simulati, i metodi di attacco ed i meccanismi difensivi implementati.
@@ -179,7 +180,7 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <div class="terminal-title">user@vflorio:~$ ./inspect_container.sh</div>
+                        <div class="terminal-title">inspect_container.sh</div>
                         <div></div>
                     </div>
                     <div class="terminal-body details-panel">

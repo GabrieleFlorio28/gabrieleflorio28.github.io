@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincenzo Gabriele Florio | Cybersecurity & Dev Portfolio</title>
-    <meta name="description" content="Portfolio di Vincenzo Gabriele Florio, laureando in Informatica con passioni per Cybersecurity, Docker, networking di container e sistemi Linux.">
+    <meta name="description" content="Portfolio di Vincenzo Gabriele Florio, Dottore di Primo Livello in Informatica con passioni per Cybersecurity, Docker, networking di container e sistemi Linux.">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- CSS Stylesheet -->
@@ -18,9 +18,10 @@
 
     <!-- Header / Navigation -->
     <header class="navbar">
-        <div class="nav-logo">
-            <span>&lt;VFlorio /&gt;</span>
-        </div>
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon">VF</div>
+            <div class="logo-text">Gabriele <span class="logo-accent">Florio</span></div>
+        </a>
         <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle-btn">
             <i class="fa-solid fa-bars"></i>
         </button>
@@ -38,7 +39,7 @@
             <h1 class="hero-name">Vincenzo Gabriele Florio</h1>
             <div class="hero-subtitle typing-cursor" id="typing-text"></div>
             <p class="hero-desc">
-                Laureando in Informatica presso l'Università degli Studi di Catania. Appassionato di 
+                Dottore di Primo Livello in Informatica presso l'Università degli Studi di Catania. Appassionato di 
                 <strong>cybersecurity</strong>, <strong>containerizzazione</strong>, sistemi <strong>Linux</strong> e sviluppo software.
             </p>
             <div class="btn-group">
@@ -48,14 +49,14 @@
         </section>
 
         <!-- Profile & Biography (Terminal Card) -->
-        <section class="terminal-card">
+        <section class="terminal-card reveal">
             <div class="terminal-header">
                 <div class="terminal-dots">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                 </div>
-                <div class="terminal-title">user@vflorio:~$ cat about_me.md</div>
+                <div class="terminal-title">about_me.md</div>
                 <div></div>
             </div>
             <div class="terminal-body">
@@ -75,73 +76,69 @@
             </div>
         </section>
 
-        <!-- Experience and Education (Terminal Card) -->
-        <section class="terminal-card">
+        <!-- Experience and Education (Terminal Card with Timeline) -->
+        <section class="terminal-card reveal">
             <div class="terminal-header">
                 <div class="terminal-dots">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                 </div>
-                <div class="terminal-title">user@vflorio:~$ ./display_timeline.sh</div>
+                <div class="terminal-title">timeline.sh</div>
                 <div></div>
             </div>
-            <div class="terminal-body" style="display: flex; flex-direction: column; gap: 2rem;">
-                
-                <!-- Education 1 -->
-                <div>
-                    <h3 style="font-family: var(--font-mono); font-size: 1.15rem; color: var(--neon-green); margin-bottom: 0.5rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
-                        <span>Universita' degli Studi di Catania</span>
-                        <span style="color: var(--text-muted); font-size: 0.9rem;">2020 -- Presente</span>
-                    </h3>
-                    <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
-                        Laurea Triennale in Informatica
-                    </p>
-                    <ul style="list-style-position: inside; color: var(--text-secondary); padding-left: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
-                        <li>Data di laurea prevista: <strong>25/09/2026</strong>.</li>
-                        <li>Ambito di studio primario: <strong>Cybersecurity, Reti e Sistemi</strong>.</li>
-                        <li>Progetto di Tesi: <em>Tecnologie di containerizzazione e orchestrazione - Vulnerable Lab</em>.</li>
-                    </ul>
-                </div>
+            <div class="terminal-body">
+                <div class="timeline-container">
 
-                <!-- Work Experience 1 -->
-                <div>
-                    <h3 style="font-family: var(--font-mono); font-size: 1.15rem; color: var(--neon-purple); margin-bottom: 0.5rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
-                        <span>AVIS Comunale di Catania</span>
-                        <span style="color: var(--text-muted); font-size: 0.9rem;">06/2023 -- 06/2024</span>
-                    </h3>
-                    <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">
-                        Operatore di Servizio Civile Universale / Assistente
-                    </p>
-                    <ul style="list-style-position: inside; color: var(--text-secondary); padding-left: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
-                        <li>Accoglienza, assistenza ed orientamento dei donatori di sangue.</li>
-                        <li>Supporto logistico e organizzativo alle attività quotidiane della struttura.</li>
-                        <li>Gestione ed ottimizzazione della comunicazione interna e con il pubblico.</li>
-                    </ul>
-                </div>
+                    <!-- Education 1 -->
+                    <div class="timeline-item education reveal">
+                        <div class="timeline-header">
+                            <h3 style="color: var(--neon-green);">Università degli Studi di Catania</h3>
+                            <span class="timeline-date">2020 — 2026</span>
+                        </div>
+                        <p class="timeline-role">Laurea Triennale in Informatica</p>
+                        <ul class="timeline-details">
+                            <li>Proclamazione: <strong>26/09/2026</strong>.</li>
+                            <li>Ambito di studio primario: <strong>Cybersecurity, Reti e Sistemi</strong>.</li>
+                            <li>Progetto di Tesi: <em>Tecnologie di containerizzazione e orchestrazione - Vulnerable Lab</em>.</li>
+                        </ul>
+                    </div>
 
-                <!-- High School -->
-                <div>
-                    <h3 style="font-family: var(--font-mono); font-size: 1.15rem; color: var(--text-muted); margin-bottom: 0.5rem; display: flex; justify-content: space-between; flex-wrap: wrap;">
-                        <span>Liceo Scientifico Galileo Galilei (Catania)</span>
-                        <span style="color: var(--text-muted); font-size: 0.9rem;">2015 -- 2020</span>
-                    </h3>
-                    <p style="font-weight: 600; color: var(--text-primary);">
-                        Diploma di Liceo Scientifico (Indirizzo Linguistico)
-                    </p>
-                </div>
+                    <!-- Work Experience 1 -->
+                    <div class="timeline-item work reveal">
+                        <div class="timeline-header">
+                            <h3 style="color: var(--neon-purple);">AVIS Comunale di Catania</h3>
+                            <span class="timeline-date">06/2023 — 06/2024</span>
+                        </div>
+                        <p class="timeline-role">Operatore di Servizio Civile Universale / Assistente</p>
+                        <ul class="timeline-details">
+                            <li>Accoglienza, assistenza ed orientamento dei donatori di sangue.</li>
+                            <li>Supporto logistico e organizzativo alle attività quotidiane della struttura.</li>
+                            <li>Gestione ed ottimizzazione della comunicazione interna e con il pubblico.</li>
+                        </ul>
+                    </div>
 
+                    <!-- High School -->
+                    <div class="timeline-item highschool reveal">
+                        <div class="timeline-header">
+                            <h3>Liceo Scientifico Galileo Galilei (Catania)</h3>
+                            <span class="timeline-date">2015 — 2020</span>
+                        </div>
+                        <p class="timeline-role">Diploma di Liceo Scientifico (Indirizzo Linguistico)</p>
+                    </div>
+
+                </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section class="skills-section">
+        <section class="skills-section reveal">
             <h2 class="section-title">competenze_tecniche</h2>
-            <div class="skills-grid">
+            <div class="skills-grid stagger-children">
                 
                 <!-- Category 1 -->
-                <div class="skill-category">
-                    <h3>&gt;_ Linguaggi</h3>
+                <div class="skill-category reveal">
+                    <h3><i class="fa-solid fa-terminal"></i> Linguaggi</h3>
                     <div class="skills-tags">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">C</span>
@@ -153,8 +150,8 @@
                 </div>
 
                 <!-- Category 2 -->
-                <div class="skill-category">
-                    <h3>&gt;_ DevOps & Security</h3>
+                <div class="skill-category reveal">
+                    <h3><i class="fa-solid fa-shield-halved"></i> DevOps & Security</h3>
                     <div class="skills-tags">
                         <span class="skill-tag">Docker</span>
                         <span class="skill-tag">Docker Compose</span>
@@ -166,8 +163,8 @@
                 </div>
 
                 <!-- Category 3 -->
-                <div class="skill-category">
-                    <h3>&gt;_ Virtualizzazione & Tech</h3>
+                <div class="skill-category reveal">
+                    <h3><i class="fa-solid fa-server"></i> Virtualizzazione & Tech</h3>
                     <div class="skills-tags">
                         <span class="skill-tag">VMware ESXi / Workstation</span>
                         <span class="skill-tag">VirtualBox</span>
@@ -178,8 +175,8 @@
                 </div>
 
                 <!-- Category 4 -->
-                <div class="skill-category">
-                    <h3>&gt;_ Interessi Extra</h3>
+                <div class="skill-category reveal">
+                    <h3><i class="fa-solid fa-puzzle-piece"></i> Interessi Extra</h3>
                     <div class="skills-tags">
                         <span class="skill-tag">CTF Challenges</span>
                         <span class="skill-tag">PC Hardware Assembly</span>

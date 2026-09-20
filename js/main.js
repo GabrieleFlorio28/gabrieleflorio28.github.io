@@ -1,7 +1,7 @@
 /**
  * Main JavaScript File - Vincenzo Gabriele Florio Portfolio
  * Handles general page behaviors, typewriter text, navbar menu,
- * matrix rain canvas, and interactive contact form logic.
+ * matrix rain canvas, scroll-reveal animations, and interactive contact form logic.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const typingTextElement = document.getElementById("typing-text");
     if (typingTextElement) {
         const phrases = [
-            "Laureando in Informatica",
+            "Dottore di Primo Livello in Informatica",
             "Cybersecurity Enthusiast",
             "Docker & DevOps Specialist",
             "Linux Systems Administrator"
@@ -52,8 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 charIndex++;
                 typingSpeed = 100;
             }
-
-            // Blinking cursor visual adjustment is handled in CSS typing-cursor
 
             // Check if word is fully typed
             if (!isDeleting && charIndex === currentPhrase.length) {
@@ -93,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Characters to display (mix of binary and security-related characters)
-        const charSet = "0101011001010101ABCDEFUX/.->_$<>[]{}".split("");
+        const charSet = "0101011001010101ABCDEFUX/.->[]{}_$".split("");
 
         function drawMatrix() {
             // Dark transparent background overlay to create trails
@@ -142,7 +140,29 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(drawMatrix, 35);
     }
 
-    // --- 4. Interactive Contact Form (Terminal Simulation) ---
+    // --- 4. Scroll-Triggered Reveal Animations ---
+    const revealElements = document.querySelectorAll(".reveal");
+    
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    // Don't unobserve — keep it as-is for a one-time reveal
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -40px 0px"
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    }
+
+    // --- 5. Interactive Contact Form (Terminal Simulation) ---
     const contactForm = document.getElementById("contact-form-element");
     const logPanel = document.getElementById("terminal-upload-log");
     const alertSuccess = document.getElementById("form-alert-success");

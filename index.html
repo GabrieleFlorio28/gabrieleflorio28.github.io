@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vincenzo Gabriele Florio | Cybersecurity & Dev Portfolio</title>
-    <meta name="description" content="Portfolio di Vincenzo Gabriele Florio, Dottore di Primo Livello in Informatica con passioni per Cybersecurity, Docker, networking di container e sistemi Linux.">
+    <title>Vincenzo Gabriele Florio | Cybersecurity Specialist Portfolio</title>
+    <meta name="description" content="Portfolio professionale di Vincenzo Gabriele Florio — Cybersecurity Specialist, Dottore di Primo Livello in Informatica. Esperto in containerizzazione Docker, Linux systems, penetration testing e network security.">
+    <meta name="keywords" content="cybersecurity, portfolio, Docker, Linux, penetration testing, Vincenzo Gabriele Florio">
+    <meta name="author" content="Vincenzo Gabriele Florio">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vincenzo Gabriele Florio | Cybersecurity Specialist">
+    <meta property="og:description" content="Portfolio professionale — Cybersecurity, Docker, Linux Systems & Network Security.">
+    <meta property="og:type" content="website">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- CSS Stylesheet -->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Background Canvas for Matrix effect -->
+    <!-- Background Canvas -->
     <canvas id="matrix-canvas"></canvas>
 
-    <!-- Header / Navigation -->
-    <header class="navbar">
+    <!-- Navigation -->
+    <header class="navbar" id="main-navbar">
         <a href="index.html" class="nav-logo">
             <div class="logo-icon">VF</div>
             <div class="logo-text">Gabriele <span class="logo-accent">Florio</span></div>
@@ -27,29 +33,37 @@
         </button>
         <ul class="nav-links" id="nav-links-list">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="projects.html">Progetti & Tesi</a></li>
+            <li><a href="projects.html">Progetti</a></li>
             <li><a href="contact.html">Contatti</a></li>
         </ul>
     </header>
 
     <!-- Main Content -->
     <main class="fade-in">
+
         <!-- Hero Section -->
         <section class="container-flex-center">
+
             <h1 class="hero-name">Vincenzo Gabriele Florio</h1>
             <div class="hero-subtitle typing-cursor" id="typing-text"></div>
             <p class="hero-desc">
                 Dottore di Primo Livello in Informatica presso l'Università degli Studi di Catania. Appassionato di 
-                <strong>cybersecurity</strong>, <strong>containerizzazione</strong>, sistemi <strong>Linux</strong> e sviluppo software.
+                <strong>cybersecurity</strong>, <strong>containerizzazione</strong>, sistemi <strong>Linux</strong> e sviluppo software sicuro.
             </p>
             <div class="btn-group">
-                <a href="projects.html" class="btn btn-primary"><i class="fa-solid fa-code"></i> Vedi Progetti</a>
-                <a href="contact.html" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contattami</a>
+                <a href="projects.html" class="btn btn-primary" id="btn-view-projects">
+                    <i class="fa-solid fa-shield-halved"></i> Vedi Progetti
+                </a>
+                <a href="contact.html" class="btn btn-secondary" id="btn-contact-me">
+                    <i class="fa-solid fa-terminal"></i> Contattami
+                </a>
             </div>
+
+
         </section>
 
-        <!-- Profile & Biography (Terminal Card) -->
-        <section class="terminal-card reveal">
+        <!-- Profile / About — Terminal Card -->
+        <section class="terminal-card reveal" id="about-section">
             <div class="terminal-header">
                 <div class="terminal-dots">
                     <span class="dot red"></span>
@@ -60,15 +74,15 @@
                 <div></div>
             </div>
             <div class="terminal-body">
-                <h2 style="font-family: var(--font-mono); font-size: 1.25rem; color: var(--neon-cyan); margin-bottom: 1rem;">
+                <h2 style="font-family: var(--font-mono); font-size: 1.2rem; color: var(--neon-cyan); margin-bottom: 1.25rem;">
                     # Profilo Professionale
                 </h2>
-                <p style="margin-bottom: 1.25rem; color: var(--text-secondary);">
+                <p style="margin-bottom: 1.25rem; color: var(--text-secondary); line-height: 1.75;">
                     Il mio percorso universitario e lo sviluppo del mio progetto di tesi mi hanno permesso di specializzarmi 
                     nella configurazione di ambienti containerizzati complessi, nell'analisi di scenari di vulnerabilità reali 
                     e nella conduzione di test di attacco in ambienti di laboratorio controllati.
                 </p>
-                <p style="color: var(--text-secondary);">
+                <p style="color: var(--text-secondary); line-height: 1.75;">
                     Credo fermamente nell'apprendimento pratico, nella documentazione rigorosa e nella progettazione sicura delle infrastrutture. 
                     Oltre allo studio teorico, mi dedico alla risoluzione di CTF (Capture The Flag), allo studio dell'hardware PC 
                     e alla virtualizzazione di sistemi operativi.
@@ -76,8 +90,8 @@
             </div>
         </section>
 
-        <!-- Experience and Education (Terminal Card with Timeline) -->
-        <section class="terminal-card reveal">
+        <!-- Timeline — Education & Experience -->
+        <section class="terminal-card reveal" id="timeline-section">
             <div class="terminal-header">
                 <div class="terminal-dots">
                     <span class="dot red"></span>
@@ -90,7 +104,7 @@
             <div class="terminal-body">
                 <div class="timeline-container">
 
-                    <!-- Education 1 -->
+                    <!-- Education: University -->
                     <div class="timeline-item education reveal">
                         <div class="timeline-header">
                             <h3 style="color: var(--neon-green);">Università degli Studi di Catania</h3>
@@ -104,10 +118,10 @@
                         </ul>
                     </div>
 
-                    <!-- Work Experience 1 -->
+                    <!-- Work: AVIS -->
                     <div class="timeline-item work reveal">
                         <div class="timeline-header">
-                            <h3 style="color: var(--neon-purple);">AVIS Comunale di Catania</h3>
+                            <h3 style="color: var(--neon-violet);">AVIS Comunale di Catania</h3>
                             <span class="timeline-date">06/2023 — 06/2024</span>
                         </div>
                         <p class="timeline-role">Operatore di Servizio Civile Universale / Assistente</p>
@@ -131,12 +145,12 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section class="skills-section reveal">
+        <!-- Technical Skills -->
+        <section class="skills-section reveal" id="skills-section">
             <h2 class="section-title">competenze_tecniche</h2>
             <div class="skills-grid stagger-children">
                 
-                <!-- Category 1 -->
+                <!-- Languages -->
                 <div class="skill-category reveal">
                     <h3><i class="fa-solid fa-terminal"></i> Linguaggi</h3>
                     <div class="skills-tags">
@@ -149,7 +163,7 @@
                     </div>
                 </div>
 
-                <!-- Category 2 -->
+                <!-- DevOps & Security -->
                 <div class="skill-category reveal">
                     <h3><i class="fa-solid fa-shield-halved"></i> DevOps & Security</h3>
                     <div class="skills-tags">
@@ -162,7 +176,7 @@
                     </div>
                 </div>
 
-                <!-- Category 3 -->
+                <!-- Virtualization -->
                 <div class="skill-category reveal">
                     <h3><i class="fa-solid fa-server"></i> Virtualizzazione & Tech</h3>
                     <div class="skills-tags">
@@ -174,7 +188,7 @@
                     </div>
                 </div>
 
-                <!-- Category 4 -->
+                <!-- Extra Interests -->
                 <div class="skill-category reveal">
                     <h3><i class="fa-solid fa-puzzle-piece"></i> Interessi Extra</h3>
                     <div class="skills-tags">
@@ -193,9 +207,9 @@
     <footer>
         <div class="footer-content">
             <div class="footer-text">
-                &copy; 2026 Vincenzo Gabriele Florio.
+                &copy; 2026 Vincenzo Gabriele Florio
             </div>
-            <div style="display: flex; gap: 1.5rem; font-size: 1.1rem;">
+            <div class="footer-links">
                 <a href="https://github.com/GabrieleFlorio28" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="mailto:Gabriele.Florio28@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -203,7 +217,7 @@
         </div>
     </footer>
 
-    <!-- JS Scripts -->
+    <!-- JS -->
     <script src="js/main.js"></script>
 </body>
 </html>

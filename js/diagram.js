@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // OPTIONAL: Automatically pre-select Nginx Gateway on load for dynamic presentation
         // We do this after a small delay to allow the entrance transition to look clean
         setTimeout(() => {
-            activateNode("node-proxy");
+            activateNode("node-compose");
         }, 300);
     }
 });

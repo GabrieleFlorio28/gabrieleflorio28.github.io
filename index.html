@@ -1,223 +1,233 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vincenzo Gabriele Florio | Cybersecurity Specialist Portfolio</title>
-    <meta name="description" content="Portfolio professionale di Vincenzo Gabriele Florio — Cybersecurity Specialist, Dottore di Primo Livello in Informatica. Esperto in containerizzazione Docker, Linux systems, penetration testing e network security.">
-    <meta name="keywords" content="cybersecurity, portfolio, Docker, Linux, penetration testing, Vincenzo Gabriele Florio">
-    <meta name="author" content="Vincenzo Gabriele Florio">
-    <!-- Open Graph -->
-    <meta property="og:title" content="Vincenzo Gabriele Florio | Cybersecurity Specialist">
-    <meta property="og:description" content="Portfolio professionale — Cybersecurity, Docker, Linux Systems & Network Security.">
-    <meta property="og:type" content="website">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vincenzo Gabriele Florio | Cybersecurity Specialist Portfolio</title>
+  <meta name="description" content="Portfolio di Vincenzo Gabriele Florio, laureato in Informatica all'Università di Catania: cybersecurity, Docker, sistemi Linux e sicurezza di rete.">
+  <meta name="author" content="Vincenzo Gabriele Florio">
+  <meta name="keywords" content="cybersecurity, portfolio, Docker, Linux, penetration testing">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vincenzo Gabriele Florio | Cybersecurity Specialist">
+  <meta property="og:description" content="Cybersecurity, containerizzazione e sistemi Linux. Progetto di tesi: Vulnerable Lab.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Background Canvas -->
-    <canvas id="matrix-canvas"></canvas>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
 
-    <!-- Navigation -->
-    <header class="navbar" id="main-navbar">
-        <a href="index.html" class="nav-logo">
-            <div class="logo-icon">VF</div>
-            <div class="logo-text">Gabriele <span class="logo-accent">Florio</span></div>
-        </a>
-        <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <ul class="nav-links" id="nav-links-list">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="projects.html">Progetti</a></li>
-            <li><a href="contact.html">Contatti</a></li>
-        </ul>
-    </header>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Gabriele Florio</a>
+      <nav class="nav" aria-label="Principale">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="projects.html">Progetti</a>
+        <a href="contact.html">Contatti</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <main class="fade-in">
-
-        <!-- Hero Section -->
-        <section class="container-flex-center">
-
-            <h1 class="hero-name">Vincenzo Gabriele Florio</h1>
-            <div class="hero-subtitle typing-cursor" id="typing-text"></div>
-            <p class="hero-desc">
-                Dottore di Primo Livello in Informatica presso l'Università degli Studi di Catania. Appassionato di 
-                <strong>cybersecurity</strong>, <strong>containerizzazione</strong>, sistemi <strong>Linux</strong> e sviluppo software sicuro.
-            </p>
-            <div class="btn-group">
-                <a href="projects.html" class="btn btn-primary" id="btn-view-projects">
-                    <i class="fa-solid fa-shield-halved"></i> Vedi Progetti
-                </a>
-                <a href="contact.html" class="btn btn-secondary" id="btn-contact-me">
-                    <i class="fa-solid fa-terminal"></i> Contattami
-                </a>
-            </div>
-
-
-        </section>
-
-        <!-- Profile / About — Terminal Card -->
-        <section class="terminal-card reveal" id="about-section">
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <div class="terminal-title">about_me.md</div>
-                <div></div>
-            </div>
-            <div class="terminal-body">
-                <h2 style="font-family: var(--font-mono); font-size: 1.2rem; color: var(--neon-cyan); margin-bottom: 1.25rem;">
-                    # Profilo Professionale
-                </h2>
-                <p style="margin-bottom: 1.25rem; color: var(--text-secondary); line-height: 1.75;">
-                    Il mio percorso universitario e lo sviluppo del mio progetto di tesi mi hanno permesso di specializzarmi 
-                    nella configurazione di ambienti containerizzati complessi, nell'analisi di scenari di vulnerabilità reali 
-                    e nella conduzione di test di attacco in ambienti di laboratorio controllati.
-                </p>
-                <p style="color: var(--text-secondary); line-height: 1.75;">
-                    Credo fermamente nell'apprendimento pratico, nella documentazione rigorosa e nella progettazione sicura delle infrastrutture. 
-                    Oltre allo studio teorico, mi dedico alla risoluzione di CTF (Capture The Flag), allo studio dell'hardware PC 
-                    e alla virtualizzazione di sistemi operativi.
-                </p>
-            </div>
-        </section>
-
-        <!-- Timeline — Education & Experience -->
-        <section class="terminal-card reveal" id="timeline-section">
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <div class="terminal-title">timeline.sh</div>
-                <div></div>
-            </div>
-            <div class="terminal-body">
-                <div class="timeline-container">
-
-                    <!-- Education: University -->
-                    <div class="timeline-item education reveal">
-                        <div class="timeline-header">
-                            <h3 style="color: var(--neon-green);">Università degli Studi di Catania</h3>
-                            <span class="timeline-date">2020 — 2026</span>
-                        </div>
-                        <p class="timeline-role">Laurea Triennale in Informatica</p>
-                        <ul class="timeline-details">
-                            <li>Proclamazione: <strong>25/09/2026</strong>.</li>
-                            <li>Ambito di studio primario: <strong>Cybersecurity, Reti e Sistemi</strong>.</li>
-                            <li>Progetto di Tesi: <em>Tecnologie di containerizzazione e orchestrazione - Vulnerable Lab</em>.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Work: AVIS -->
-                    <div class="timeline-item work reveal">
-                        <div class="timeline-header">
-                            <h3 style="color: var(--neon-violet);">AVIS Comunale di Catania</h3>
-                            <span class="timeline-date">06/2023 — 06/2024</span>
-                        </div>
-                        <p class="timeline-role">Operatore di Servizio Civile Universale / Assistente</p>
-                        <ul class="timeline-details">
-                            <li>Accoglienza, assistenza ed orientamento dei donatori di sangue.</li>
-                            <li>Supporto logistico e organizzativo alle attività quotidiane della struttura.</li>
-                            <li>Gestione ed ottimizzazione della comunicazione interna e con il pubblico.</li>
-                        </ul>
-                    </div>
-
-                    <!-- High School -->
-                    <div class="timeline-item highschool reveal">
-                        <div class="timeline-header">
-                            <h3>Liceo Scientifico Galileo Galilei (Catania)</h3>
-                            <span class="timeline-date">2015 — 2020</span>
-                        </div>
-                        <p class="timeline-role">Diploma di Liceo Scientifico (Indirizzo Linguistico)</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Skills -->
-        <section class="skills-section reveal" id="skills-section">
-            <h2 class="section-title">competenze_tecniche</h2>
-            <div class="skills-grid stagger-children">
-                
-                <!-- Languages -->
-                <div class="skill-category reveal">
-                    <h3><i class="fa-solid fa-terminal"></i> Linguaggi</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">HTML5 / CSS3</span>
-                        <span class="skill-tag">Bash Scripting</span>
-                    </div>
-                </div>
-
-                <!-- DevOps & Security -->
-                <div class="skill-category reveal">
-                    <h3><i class="fa-solid fa-shield-halved"></i> DevOps & Security</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Docker Compose</span>
-                        <span class="skill-tag">Linux Systems</span>
-                        <span class="skill-tag">AppSec Testing</span>
-                        <span class="skill-tag">Container Isolation</span>
-                        <span class="skill-tag">Network Security</span>
-                    </div>
-                </div>
-
-                <!-- Virtualization -->
-                <div class="skill-category reveal">
-                    <h3><i class="fa-solid fa-server"></i> Virtualizzazione & Tech</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">VMware ESXi / Workstation</span>
-                        <span class="skill-tag">VirtualBox</span>
-                        <span class="skill-tag">Git & GitHub</span>
-                        <span class="skill-tag">LaTeX</span>
-                        <span class="skill-tag">Sysadmin Ess.</span>
-                    </div>
-                </div>
-
-                <!-- Extra Interests -->
-                <div class="skill-category reveal">
-                    <h3><i class="fa-solid fa-puzzle-piece"></i> Interessi Extra</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">CTF Challenges</span>
-                        <span class="skill-tag">PC Hardware Assembly</span>
-                        <span class="skill-tag">Virtualization Labs</span>
-                        <span class="skill-tag">Network Architectures</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-text">
-                &copy; 2026 Vincenzo Gabriele Florio
-            </div>
-            <div class="footer-links">
-                <a href="https://github.com/GabrieleFlorio28" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:Gabriele.Florio28@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Vincenzo Gabriele Florio</h1>
+        <p class="hero-role">Cybersecurity, container e sistemi Linux</p>
+        <p class="hero-intro">Laureato in Informatica all'Università di Catania. Costruisco laboratori controllati per studiare le vulnerabilità reali e progettare infrastrutture più sicure.</p>
+        <div class="btn-row">
+          <a class="btn btn-solid" href="projects.html">Vedi i progetti</a>
+          <a class="btn" href="contact.html">Scrivimi</a>
         </div>
-    </footer>
 
-    <!-- JS -->
-    <script src="js/main.js"></script>
+        <!-- Il laboratorio della tesi: 4 servizi, 4 reti isolate -->
+        <div class="lab" data-lab>
+          <div class="lab-grid">
+            <div class="lab-host">
+              <strong>Docker Compose</strong>
+              <span>Un host, quattro servizi, quattro reti dedicate</span>
+            </div>
+            <ul class="lanes" aria-label="Scenari del Vulnerable Lab">
+              <li>
+                <button class="lane" type="button" data-lane="sql" aria-pressed="true">
+                  <span class="lane-bar"></span>
+                  <span><span class="lane-name">SQL Injection</span><span class="lane-net">sql_net</span></span>
+                  <span class="lane-port">:5000</span>
+                </button>
+              </li>
+              <li>
+                <button class="lane" type="button" data-lane="auth" aria-pressed="false">
+                  <span class="lane-bar"></span>
+                  <span><span class="lane-name">Broken Authentication</span><span class="lane-net">auth_net</span></span>
+                  <span class="lane-port">:5001</span>
+                </button>
+              </li>
+              <li>
+                <button class="lane" type="button" data-lane="priv" aria-pressed="false">
+                  <span class="lane-bar"></span>
+                  <span><span class="lane-name">Privilege Escalation</span><span class="lane-net">priv_net</span></span>
+                  <span class="lane-port">:5002</span>
+                </button>
+              </li>
+              <li>
+                <button class="lane" type="button" data-lane="misc" aria-pressed="false">
+                  <span class="lane-bar"></span>
+                  <span><span class="lane-name">Security Misconfiguration</span><span class="lane-net">misconf_net</span></span>
+                  <span class="lane-port">:5003</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="lab-panel" data-panel aria-live="polite">
+            <div>
+              <h3 data-p-title>SQL Injection</h3>
+              <dl>
+                <dt>Rete</dt><dd data-p-net>sql_net</dd>
+                <dt>Porta</dt><dd data-p-port>5000</dd>
+              </dl>
+            </div>
+            <div>
+              <p data-p-summary>Scenario dedicato alla SQL Injection, isolato nella rete sql_net.</p>
+              <p data-p-what>In breve: input non filtrato che permette di alterare le query inviate al database.</p>
+            </div>
+          </div>
+          <p class="lab-foot">Il mio progetto di tesi, Vulnerable Lab. <a href="projects.html">Leggi il caso di studio</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="profilo">
+      <div class="wrap split">
+        <h2>Profilo</h2>
+        <div class="prose">
+          <p>Laureato in Informatica all'Università di Catania, mi occupo di <strong>cybersecurity, containerizzazione, sistemi Linux e sviluppo software sicuro</strong>.</p>
+          <p>Il percorso di studi e la tesi si sono concentrati sulla configurazione di ambienti containerizzati complessi, sull'analisi di scenari di vulnerabilità reali e sui test di sicurezza condotti in laboratorio controllato.</p>
+          <p>Imparo facendo, documento con rigore e progetto infrastrutture pensando alla sicurezza fin dall'inizio. Nel tempo libero partecipo a CTF, studio l'hardware dei PC e sperimento con la virtualizzazione dei sistemi operativi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="percorso">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Percorso</h2>
+        </div>
+        <ol class="timeline">
+          <li class="tl-item">
+            <div class="tl-date">2020 – 2026</div>
+            <div class="tl-body">
+              <h3>Università degli Studi di Catania</h3>
+              <p class="tl-role">Laurea triennale in Informatica</p>
+              <ul>
+                <li>Laurea conseguita il 25/09/2026</li>
+                <li>Indirizzo: cybersecurity, reti e sistemi</li>
+                <li>Tesi: «Tecnologie di containerizzazione e orchestrazione — Vulnerable Lab»</li>
+              </ul>
+            </div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-date">06/2023 – 06/2024</div>
+            <div class="tl-body">
+              <h3>AVIS Comunale di Catania</h3>
+              <p class="tl-role">Operatore volontario del Servizio Civile Universale</p>
+              <ul>
+                <li>Accoglienza e assistenza ai donatori</li>
+                <li>Supporto logistico</li>
+                <li>Gestione della comunicazione</li>
+              </ul>
+            </div>
+          </li>
+          <li class="tl-item">
+            <div class="tl-date">2015 – 2020</div>
+            <div class="tl-body">
+              <h3>Liceo Scientifico Galileo Galilei</h3>
+              <p class="tl-role">Diploma di liceo scientifico, percorso linguistico</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="competenze">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Competenze</h2>
+        </div>
+        <div class="skills">
+          <div>
+            <h3>Linguaggi</h3>
+            <ul>
+              <li>Python</li>
+              <li>C</li>
+              <li>C++</li>
+              <li>Java</li>
+              <li>HTML5 e CSS3</li>
+              <li>Bash scripting</li>
+            </ul>
+          </div>
+          <div>
+            <h3>DevOps e sicurezza</h3>
+            <ul>
+              <li>Docker e Docker Compose</li>
+              <li>Sistemi Linux</li>
+              <li>Test di sicurezza applicativa (AppSec)</li>
+              <li>Isolamento dei container</li>
+              <li>Sicurezza di rete</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Virtualizzazione e strumenti</h3>
+            <ul>
+              <li>VMware ESXi e Workstation</li>
+              <li>VirtualBox</li>
+              <li>Git e GitHub</li>
+              <li>LaTeX</li>
+              <li>Amministrazione di sistema</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Interessi</h3>
+            <ul>
+              <li>CTF</li>
+              <li>Hardware dei PC</li>
+              <li>Laboratori di virtualizzazione</li>
+              <li>Architetture di rete</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta">
+          <h2>Parliamo di tesi, collaborazioni o lavoro</h2>
+          <p>Sono disponibile per opportunità in cybersecurity e software engineering. Rispondo entro 24 ore.</p>
+          <div class="btn-row">
+            <a class="btn btn-solid" href="contact.html">Contattami</a>
+            <a class="btn" href="https://github.com/GabrieleFlorio28" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> Vincenzo Gabriele Florio</span>
+      <ul>
+        <li><a href="https://github.com/GabrieleFlorio28" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:Gabriele.Florio28@gmail.com">Gabriele.Florio28@gmail.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,201 +1,115 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti | Vincenzo Gabriele Florio</title>
-    <meta name="description" content="Contatta Vincenzo Gabriele Florio, Cybersecurity Specialist e Dottore di Primo Livello in Informatica, per opportunità lavorative, collaborazioni o informazioni sul progetto Vulnerable Lab.">
-    <meta name="author" content="Vincenzo Gabriele Florio">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contatti | Vincenzo Gabriele Florio</title>
+  <meta name="description" content="Contatta Vincenzo Gabriele Florio per tesi, collaborazioni e opportunità in cybersecurity e software engineering. Rispondo entro 24 ore.">
+  <meta name="author" content="Vincenzo Gabriele Florio">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Background Canvas -->
-    <canvas id="matrix-canvas"></canvas>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
 
-    <!-- Navigation -->
-    <header class="navbar" id="main-navbar">
-        <a href="index.html" class="nav-logo">
-            <div class="logo-icon">VF</div>
-            <div class="logo-text">Gabriele <span class="logo-accent">Florio</span></div>
-        </a>
-        <button class="nav-toggle" aria-label="Toggle navigation menu" id="nav-toggle-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <ul class="nav-links" id="nav-links-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Progetti</a></li>
-            <li><a href="contact.html" class="active">Contatti</a></li>
-        </ul>
-    </header>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Gabriele Florio</a>
+      <nav class="nav" aria-label="Principale">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Progetti</a>
+        <a href="contact.html" aria-current="page">Contatti</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <main class="fade-in">
-        <section style="margin-bottom: 3rem;" class="reveal">
-            <div class="hero-badge" style="margin-bottom: 1.5rem;">
-                <span class="pulse-dot"></span>
-                Rispondo Entro 24h
-            </div>
-            <h1 class="hero-name" style="font-size: clamp(2rem, 5vw, 3.5rem);">Contatti</h1>
-            <h2 style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--neon-cyan); margin-bottom: 1.5rem;">
-                user@vflorio:~$ ./get_contact_info.sh
-            </h2>
-            <p style="color: var(--text-secondary); max-width: 700px; line-height: 1.7;">
-                Hai domande sul mio progetto di tesi? Vuoi collaborare o discutere di opportunità lavorative in ambito cybersecurity e software engineering? Inviami un messaggio o collegati tramite i miei profili social.
-            </p>
-        </section>
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <h1>Contatti</h1>
+        <p class="lede">Sono disponibile per tesi, collaborazioni e opportunità in cybersecurity e software engineering. Rispondo entro 24 ore.</p>
+      </div>
+    </section>
 
-        <!-- Contact Layout -->
-        <div class="contact-section reveal">
-            
-            <!-- Left Side: Contact Info -->
-            <div>
-                <ul class="contact-info-list">
-                    <!-- Email -->
-                    <li class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>EMAIL PRIMARIA</h4>
-                            <p><a href="mailto:Gabriele.Florio28@gmail.com">Gabriele.Florio28@gmail.com</a></p>
-                        </div>
-                    </li>
-
-                    <!-- PEC -->
-                    <li class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>EMAIL PEC</h4>
-                            <p><a href="mailto:Gabriele.Florio28@arubapec.it">Gabriele.Florio28@arubapec.it</a></p>
-                        </div>
-                    </li>
-
-                    <!-- Phone -->
-                    <li class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>TELEFONO</h4>
-                            <p>+39 342 028 9063</p>
-                        </div>
-                    </li>
-
-                    <!-- LinkedIn -->
-                    <li class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>LINKEDIN</h4>
-                            <p><a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" target="_blank">in/vincenzo-gabriele-florio</a></p>
-                        </div>
-                    </li>
-
-                    <!-- GitHub -->
-                    <li class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>GITHUB</h4>
-                            <p><a href="https://github.com/GabrieleFlorio28" target="_blank">github.com/GabrieleFlorio28</a></p>
-                        </div>
-                    </li>
-
-                    <!-- Location -->
-                    <li class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>POSIZIONE</h4>
-                            <p>Catania, Italia</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Right Side: Terminal Form -->
-            <div class="terminal-card" style="margin-bottom: 0;">
-                <div class="terminal-header">
-                    <div class="terminal-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">send_secure_message.sh</div>
-                    <div></div>
-                </div>
-                <div class="terminal-body">
-                    
-                    <!-- Upload Log Panel -->
-                    <div id="terminal-upload-log" style="display: none; font-family: var(--font-mono); font-size: 0.85rem; color: var(--neon-green); margin-bottom: 1.5rem; border: 1px solid rgba(0, 255, 136, 0.15); padding: 1.25rem; border-radius: 10px; background: rgba(0,255,136,0.02);">
-                        <p>&gt; Initializing mail protocol...</p>
-                        <p id="log-step-1" style="display: none;">&gt; Resolving SMTP endpoint... OK (mail.vflorio.it)</p>
-                        <p id="log-step-2" style="display: none;">&gt; Encrypting message body (AES-256-GCM)... OK</p>
-                        <p id="log-step-3" style="display: none;">&gt; Sending secure payload packet... OK</p>
-                        <p id="log-step-4" style="display: none;">&gt; Connection closed. Transmission COMPLETE.</p>
-                    </div>
-
-                    <!-- Alerts -->
-                    <div class="alert alert-success" id="form-alert-success" style="margin-bottom: 1.25rem;">
-                        <i class="fa-solid fa-circle-check"></i> Messaggio trasmesso con successo! Risponderò appena possibile.
-                    </div>
-                    <div class="alert alert-error" id="form-alert-error" style="margin-bottom: 1.25rem;">
-                        <i class="fa-solid fa-circle-exclamation"></i> Si è verificato un errore. Per favore compila tutti i campi richiesti.
-                    </div>
-
-                    <!-- Form -->
-                    <form class="contact-form" id="contact-form-element">
-                        <div class="form-group">
-                            <label for="form-name">NOME / AZIENDA</label>
-                            <input type="text" id="form-name" class="form-control" placeholder="Inserisci il tuo nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-email">INDIRIZZO EMAIL</label>
-                            <input type="email" id="form-email" class="form-control" placeholder="iltuonome@esempio.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-subject">OGGETTO</label>
-                            <input type="text" id="form-subject" class="form-control" placeholder="Oggetto del messaggio" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-message">MESSAGGIO</label>
-                            <textarea id="form-message" class="form-control" placeholder="Scrivi il tuo messaggio qui..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 0.75rem; width: 100%; justify-content: center;" id="btn-send-message">
-                            <i class="fa-solid fa-paper-plane"></i> INVIA MESSAGGIO CIFRATO
-                        </button>
-                    </form>
-                </div>
-            </div>
-
+    <section class="section" style="border-top:0; padding-top:0">
+      <div class="wrap contact-grid">
+        <div>
+          <ul class="contact-list">
+            <li>
+              <span class="k">Email</span>
+              <a class="v" href="mailto:Gabriele.Florio28@gmail.com">Gabriele.Florio28@gmail.com</a>
+              <button class="copy-btn" type="button" data-copy="Gabriele.Florio28@gmail.com" aria-label="Copia l'indirizzo email">Copia</button>
+            </li>
+            <li>
+              <span class="k">PEC</span>
+              <a class="v" href="mailto:Gabriele.Florio28@arubapec.it">Gabriele.Florio28@arubapec.it</a>
+              <button class="copy-btn" type="button" data-copy="Gabriele.Florio28@arubapec.it" aria-label="Copia l'indirizzo PEC">Copia</button>
+            </li>
+            <li>
+              <span class="k">Telefono</span>
+              <a class="v" href="tel:+393420289063">+39 342 028 9063</a>
+              <button class="copy-btn" type="button" data-copy="+39 342 028 9063" aria-label="Copia il numero di telefono">Copia</button>
+            </li>
+            <li>
+              <span class="k">Dove</span>
+              <span class="v">Catania, Italia</span>
+              <span></span>
+            </li>
+            <li>
+              <span class="k">LinkedIn</span>
+              <a class="v" href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener">Vincenzo Gabriele Florio</a>
+              <span></span>
+            </li>
+            <li>
+              <span class="k">GitHub</span>
+              <a class="v" href="https://github.com/GabrieleFlorio28" rel="noopener">GabrieleFlorio28</a>
+              <span></span>
+            </li>
+          </ul>
+          <p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
         </div>
-    </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-text">
-                &copy; 2026 Vincenzo Gabriele Florio
-            </div>
-            <div class="footer-links">
-                <a href="https://github.com/GabrieleFlorio28" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:Gabriele.Florio28@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-        </div>
-    </footer>
+        <form class="form" data-mailto-form novalidate>
+          <h2>Scrivimi un messaggio</h2>
+          <div class="field">
+            <label for="nome">Nome o azienda</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">La tua email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="oggetto">Oggetto</label>
+            <input id="oggetto" name="oggetto" type="text" required>
+          </div>
+          <div class="field">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" required></textarea>
+          </div>
+          <button class="btn btn-solid" type="submit">Prepara l'email</button>
+          <p class="form-note" data-form-note>Il pulsante apre il tuo programma di posta con il messaggio già compilato. Nulla viene inviato finché non premi invio nel tuo client.</p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <!-- JS -->
-    <script src="js/main.js"></script>
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> Vincenzo Gabriele Florio</span>
+      <ul>
+        <li><a href="https://github.com/GabrieleFlorio28" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:Gabriele.Florio28@gmail.com">Gabriele.Florio28@gmail.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

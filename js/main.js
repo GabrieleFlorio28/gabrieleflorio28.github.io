@@ -84,23 +84,45 @@
   }
 
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
-    var label = btn.textContent;
+    var label = btn.querySelector(".t") || btn;
+    var original = label.textContent;
     btn.addEventListener("click", function () {
       var text = btn.dataset.copy;
       var done = function (ok) {
-        btn.textContent = ok ? "Copiato" : "Non copiato";
+        label.textContent = ok ? "Copiato" : "Non copiato";
         btn.classList.toggle("is-done", ok);
         if (status) status.textContent = ok ? "Copiato negli appunti" : "Copia non riuscita";
         setTimeout(function () {
-          btn.textContent = label;
+          label.textContent = original;
           btn.classList.remove("is-done");
         }, 1800);
       };
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+        navigator.clipboard.writeText(text).then(
+          function () { done(true); },
+          function () { done(fallbackCopy(text)); }
+        );
       } else {
         done(fallbackCopy(text));
       }
+    });
+  });
+
+  // ---------- Contatti: argomenti → oggetto ----------
+  var topics = document.querySelectorAll(".topic");
+  var subject = document.getElementById("oggetto");
+  var lastAuto = "";
+
+  topics.forEach(function (t) {
+    t.addEventListener("click", function () {
+      topics.forEach(function (o) { o.setAttribute("aria-pressed", String(o === t)); });
+      if (subject && (subject.value === "" || subject.value === lastAuto)) {
+        subject.value = t.dataset.subject;
+        lastAuto = t.dataset.subject;
+        subject.setAttribute("aria-invalid", "false");
+      }
+      var msg = document.getElementById("messaggio-testo");
+      if (msg) msg.focus();
     });
   });
 
@@ -108,6 +130,8 @@
   var form = document.querySelector("[data-mailto-form]");
   if (form) {
     var note = form.querySelector("[data-form-note]");
+    var defaultNote = note.textContent;
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -120,10 +144,12 @@
 
       if (firstInvalid) {
         note.textContent = "Compila tutti i campi, con un indirizzo email valido.";
+        note.classList.add("is-error");
         firstInvalid.focus();
         return;
       }
 
+      note.classList.remove("is-error");
       var d = new FormData(form);
       var body =
         d.get("messaggio") + "\n\n" +
@@ -135,6 +161,13 @@
 
       note.textContent = "Ho aperto il tuo programma di posta. Premi invio lì per spedire il messaggio.";
       window.location.href = url;
+    });
+
+    form.addEventListener("input", function () {
+      if (note.classList.contains("is-error")) {
+        note.classList.remove("is-error");
+        note.textContent = defaultNote;
+      }
     });
   }
 })();

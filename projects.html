@@ -7,19 +7,33 @@
   <meta name="description" content="Vulnerable Lab: laboratorio didattico containerizzato con Docker e Docker Compose per lo studio pratico delle vulnerabilità web e applicative. Tesi triennale in Informatica, Università di Catania.">
   <meta name="author" content="Vincenzo Gabriele Florio">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vulnerable Lab | Vincenzo Gabriele Florio">
+  <meta property="og:description" content="Laboratorio didattico containerizzato con Docker per lo studio pratico delle vulnerabilità web.">
+  <meta property="og:image" content="https://gabrieleflorio28.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
 
-  <header class="site-header">
+  <header class="site-header band">
     <div class="wrap">
-      <a class="brand" href="index.html">Gabriele Florio</a>
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 26 22" aria-hidden="true" focusable="false">
+          <rect x="0" y="0" width="26" height="4" rx="2" fill="#e5604a"/>
+          <rect x="0" y="6" width="19" height="4" rx="2" fill="#5683f2"/>
+          <rect x="0" y="12" width="23" height="4" rx="2" fill="#cc7c14"/>
+          <rect x="0" y="18" width="14" height="4" rx="2" fill="#9a74f2"/>
+        </svg>
+        Gabriele Florio
+      </a>
       <nav class="nav" aria-label="Principale">
         <a href="index.html">Home</a>
         <a href="projects.html" aria-current="page">Progetti</a>
@@ -29,44 +43,92 @@
   </header>
 
   <main id="main">
-    <section class="page-head">
-      <div class="wrap">
-        <h1>Vulnerable Lab</h1>
-        <p class="lede">Laboratorio didattico containerizzato. Un ambiente multi-container controllato, progettato con Docker e Docker Compose, per lo studio pratico delle vulnerabilità web e applicative più comuni.</p>
-      </div>
-    </section>
-
-    <section class="section" style="border-top:0; padding-top:0">
-      <div class="wrap">
-        <dl class="facts">
-          <div>
-            <dt>Tipo</dt>
-            <dd>Tesi di laurea triennale in Informatica</dd>
-          </div>
-          <div>
-            <dt>Università</dt>
-            <dd>Università degli Studi di Catania</dd>
-          </div>
-          <div>
-            <dt>Discussione</dt>
-            <dd>25 settembre 2026</dd>
-          </div>
-          <div>
-            <dt>Servizi e reti</dt>
-            <dd>4 servizi, 4 reti isolate</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Architettura</h2>
-          <p class="lede">Ogni scenario gira in un servizio Docker separato, collegato a una rete dedicata. Seleziona una rete per vedere lo scenario.</p>
+    <section class="page-hero band">
+      <div class="wrap hero-grid">
+        <div>
+          <ul class="chips">
+            <li class="chip">Tesi di laurea triennale</li>
+            <li class="chip">Università di Catania</li>
+            <li class="chip">25 settembre 2026</li>
+          </ul>
+          <h1>Vulnerable Lab</h1>
+          <p class="lede">Laboratorio didattico containerizzato. Un ambiente multi-container controllato, progettato con Docker e Docker Compose, per lo studio pratico delle vulnerabilità web e applicative più comuni.</p>
         </div>
 
-        <div class="lab" data-lab>
+        <!-- Quattro reti, un host: livelli isometrici -->
+        <svg class="hero-art" viewBox="0 0 520 440" role="img" aria-label="Quattro servizi su quattro reti dedicate, ospitati da un solo host Docker Compose: sql_net sulla porta 5000, auth_net sulla 5001, priv_net sulla 5002, misconf_net sulla 5003.">
+          <line class="slab-host" x1="150" y1="0" x2="150" y2="398"/>
+
+          <g class="slab"><g transform="translate(30 8)">
+            <polygon class="slab-top" data-lane="sql" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-side" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-top" data-lane="sql" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-side-r" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-top" data-lane="sql" points="0,28 120,0 240,28 120,56"/>
+            <line x1="246" y1="32" x2="262" y2="32" stroke="var(--on-dark-2)" stroke-width="1.5"/>
+            <text class="slab-label" x="272" y="20" font-size="15" font-weight="650">SQL Injection</text>
+            <text class="slab-net" x="272" y="39">sql_net</text>
+            <text class="slab-port" x="272" y="66">:5000</text>
+          </g></g>
+
+          <g class="slab"><g transform="translate(30 106)">
+            <polygon class="slab-top" data-lane="auth" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-side" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-top" data-lane="auth" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-side-r" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-top" data-lane="auth" points="0,28 120,0 240,28 120,56"/>
+            <line x1="246" y1="32" x2="262" y2="32" stroke="var(--on-dark-2)" stroke-width="1.5"/>
+            <text class="slab-label" x="272" y="20" font-size="15" font-weight="650">Broken Authentication</text>
+            <text class="slab-net" x="272" y="39">auth_net</text>
+            <text class="slab-port" x="272" y="66">:5001</text>
+          </g></g>
+
+          <g class="slab"><g transform="translate(30 204)">
+            <polygon class="slab-top" data-lane="priv" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-side" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-top" data-lane="priv" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-side-r" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-top" data-lane="priv" points="0,28 120,0 240,28 120,56"/>
+            <line x1="246" y1="32" x2="262" y2="32" stroke="var(--on-dark-2)" stroke-width="1.5"/>
+            <text class="slab-label" x="272" y="20" font-size="15" font-weight="650">Privilege Escalation</text>
+            <text class="slab-net" x="272" y="39">priv_net</text>
+            <text class="slab-port" x="272" y="66">:5002</text>
+          </g></g>
+
+          <g class="slab"><g transform="translate(30 302)">
+            <polygon class="slab-top" data-lane="misc" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-side" points="0,28 120,56 120,72 0,44"/>
+            <polygon class="slab-top" data-lane="misc" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-side-r" points="120,56 240,28 240,44 120,72"/>
+            <polygon class="slab-top" data-lane="misc" points="0,28 120,0 240,28 120,56"/>
+            <line x1="246" y1="32" x2="262" y2="32" stroke="var(--on-dark-2)" stroke-width="1.5"/>
+            <text class="slab-label" x="272" y="20" font-size="15" font-weight="650">Security Misconfiguration</text>
+            <text class="slab-net" x="272" y="39">misconf_net</text>
+            <text class="slab-port" x="272" y="66">:5003</text>
+          </g></g>
+
+          <text x="150" y="426" text-anchor="middle" fill="var(--on-dark-2)" font-size="14" font-family="inherit">Un solo host con Docker Compose</text>
+        </svg>
+      </div>
+    </section>
+
+    <div class="stats-wrap wrap">
+      <ul class="stats">
+        <li class="stat"><span class="stat-n">4</span><span class="stat-l">servizi Docker</span></li>
+        <li class="stat"><span class="stat-n">4</span><span class="stat-l">reti dedicate, una per scenario</span></li>
+        <li class="stat"><span class="stat-n">4</span><span class="stat-l">porte esposte, dalla 5000 alla 5003</span></li>
+        <li class="stat"><span class="stat-n">1</span><span class="stat-l">script PowerShell di test automatico</span></li>
+      </ul>
+    </div>
+
+    <section class="section" id="architettura">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Come è fatto</h2>
+          <p class="lede">Ogni scenario gira in un servizio separato, collegato alla propria rete. Seleziona una rete per vedere di cosa si occupa.</p>
+        </div>
+
+        <div class="lab lab--wide" data-lab>
           <div class="lab-grid">
             <div class="lab-host">
               <strong>Docker Compose</strong>
@@ -113,7 +175,7 @@
               </dl>
             </div>
             <div>
-              <p data-p-summary>Scenario dedicato alla SQL Injection, isolato nella rete sql_net.</p>
+              <p data-p-summary>Scenario dedicato a SQL Injection, isolato nella rete sql_net ed esposto sulla porta 5000.</p>
               <p data-p-what>In breve: input non filtrato che permette di alterare le query inviate al database.</p>
             </div>
           </div>
@@ -121,34 +183,156 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap split">
-        <h2>Tecnologie</h2>
+    <section class="section" id="scenari" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>I quattro scenari</h2>
+          <p class="lede">Le vulnerabilità più comuni, spiegate con uno schema. I disegni mostrano il meccanismo in generale, non il codice del laboratorio.</p>
+        </div>
+
+        <div class="scenarios">
+          <!-- SQL Injection -->
+          <article class="scenario" data-lane="sql">
+            <div class="scenario-head"><h3>SQL Injection</h3><span class="scenario-port">:5000</span></div>
+            <div class="scenario-art">
+              <svg viewBox="0 0 300 124" role="img" aria-label="Schema: l'input dell'utente passa dall'app e diventa una query sul database. Se l'input non è filtrato, può alterare la query.">
+                <defs>
+                  <marker id="a-sql" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="currentColor"/></marker>
+                  <marker id="t-sql" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" style="fill:var(--tint)"/></marker>
+                </defs>
+                <rect class="dg-box" x="4" y="34" width="70" height="40" rx="9"/>
+                <text class="dg-text" x="39" y="58" text-anchor="middle">Utente</text>
+                <rect class="dg-box" x="102" y="34" width="70" height="40" rx="9"/>
+                <text class="dg-text" x="137" y="58" text-anchor="middle">App</text>
+                <path class="dg-box" d="M226 42v26a32 9 0 0 0 64 0V42"/>
+                <ellipse class="dg-box" cx="258" cy="42" rx="32" ry="9"/>
+                <text class="dg-text" x="258" y="63" text-anchor="middle">DB</text>
+                <line class="dg-accent" x1="74" y1="54" x2="99" y2="54" marker-end="url(#t-sql)"/>
+                <line class="dg-line" x1="172" y1="54" x2="223" y2="54" marker-end="url(#a-sql)"/>
+                <text class="dg-text" x="198" y="46" text-anchor="middle">query</text>
+                <path class="dg-accent" d="M39 82v16h98V82" stroke-dasharray="3 4"/>
+                <text class="dg-note" x="88" y="118" text-anchor="middle">input non filtrato</text>
+              </svg>
+            </div>
+            <div class="scenario-body">
+              <span class="net">sql_net</span>
+              <p>L'input dell'utente finisce dentro una query senza controlli, e chi lo scrive può cambiarne il significato.</p>
+            </div>
+          </article>
+
+          <!-- Broken Authentication -->
+          <article class="scenario" data-lane="auth">
+            <div class="scenario-head"><h3>Broken Authentication</h3><span class="scenario-port">:5001</span></div>
+            <div class="scenario-art">
+              <svg viewBox="0 0 300 124" role="img" aria-label="Schema: login, sessione e dati utente in sequenza. Un percorso alternativo permette di arrivare ai dati senza verifica.">
+                <defs>
+                  <marker id="a-auth" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="currentColor"/></marker>
+                  <marker id="t-auth" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" style="fill:var(--tint)"/></marker>
+                </defs>
+                <rect class="dg-box" x="6" y="12" width="76" height="40" rx="9"/>
+                <text class="dg-text" x="44" y="36" text-anchor="middle">Login</text>
+                <rect class="dg-box" x="112" y="12" width="76" height="40" rx="9"/>
+                <text class="dg-text" x="150" y="36" text-anchor="middle">Sessione</text>
+                <rect class="dg-box" x="218" y="12" width="76" height="40" rx="9"/>
+                <text class="dg-text" x="256" y="36" text-anchor="middle">Dati utente</text>
+                <line class="dg-line" x1="82" y1="32" x2="109" y2="32" marker-end="url(#a-auth)"/>
+                <line class="dg-line" x1="188" y1="32" x2="215" y2="32" marker-end="url(#a-auth)"/>
+                <path class="dg-accent" d="M44 56C44 106 256 106 256 58" stroke-dasharray="3 4" marker-end="url(#t-auth)"/>
+                <text class="dg-note" x="150" y="118" text-anchor="middle">accesso senza verifica</text>
+              </svg>
+            </div>
+            <div class="scenario-body">
+              <span class="net">auth_net</span>
+              <p>Login e sessioni implementati in modo debole permettono di arrivare ai dati di un utente senza esserne il proprietario.</p>
+            </div>
+          </article>
+
+          <!-- Privilege Escalation -->
+          <article class="scenario" data-lane="priv">
+            <div class="scenario-head"><h3>Privilege Escalation</h3><span class="scenario-port">:5002</span></div>
+            <div class="scenario-art">
+              <svg viewBox="0 0 300 124" role="img" aria-label="Schema: una scala di permessi, dall'utente all'amministratore. Un percorso fuori dal proprio ruolo porta ai permessi più alti.">
+                <defs>
+                  <marker id="t-priv" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" style="fill:var(--tint)"/></marker>
+                </defs>
+                <path class="dg-box" d="M10 106H92V84H152V62H212V40H290V106Z"/>
+                <text class="dg-text" x="51" y="100" text-anchor="middle">utente</text>
+                <text class="dg-text" x="251" y="78" text-anchor="middle">admin</text>
+                <path class="dg-accent" d="M40 78C40 34 150 26 238 32" stroke-dasharray="3 4" marker-end="url(#t-priv)"/>
+                <text class="dg-note" x="140" y="18" text-anchor="middle">oltre il proprio ruolo</text>
+              </svg>
+            </div>
+            <div class="scenario-body">
+              <span class="net">priv_net</span>
+              <p>Un utente ottiene permessi superiori a quelli del proprio account, fino a quelli di un amministratore.</p>
+            </div>
+          </article>
+
+          <!-- Security Misconfiguration -->
+          <article class="scenario" data-lane="misc">
+            <div class="scenario-head"><h3>Security Misconfiguration</h3><span class="scenario-port">:5003</span></div>
+            <div class="scenario-art">
+              <svg viewBox="0 0 300 124" role="img" aria-label="Schema: un server con tre porte, una delle quali è lasciata aperta verso la rete. Accanto, esempi di impostazioni errate: debug attivo, porte esposte, valori di default.">
+                <defs>
+                  <marker id="t-misc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" style="fill:var(--tint)"/></marker>
+                </defs>
+                <circle class="dg-box" cx="26" cy="62" r="20"/>
+                <text class="dg-text" x="26" y="66" text-anchor="middle">Rete</text>
+                <rect class="dg-box" x="110" y="12" width="84" height="100" rx="10"/>
+                <rect class="dg-box" x="122" y="26" width="60" height="18" rx="4"/>
+                <rect class="dg-box" x="122" y="54" width="60" height="18" rx="4" style="stroke:var(--tint)"/>
+                <rect class="dg-box" x="122" y="82" width="60" height="18" rx="4"/>
+                <line class="dg-accent" x1="47" y1="63" x2="118" y2="63" stroke-dasharray="3 4" marker-end="url(#t-misc)"/>
+                <text class="dg-note" x="58" y="104" text-anchor="middle">porta aperta</text>
+                <circle class="dg-dot" cx="208" cy="35" r="3.5"/>
+                <text class="dg-text" x="217" y="39">debug attivo</text>
+                <circle class="dg-dot" cx="208" cy="63" r="3.5"/>
+                <text class="dg-text" x="217" y="67">porte esposte</text>
+                <circle class="dg-dot" cx="208" cy="91" r="3.5"/>
+                <text class="dg-text" x="217" y="95">default attivi</text>
+              </svg>
+            </div>
+            <div class="scenario-body">
+              <span class="net">misconf_net</span>
+              <p>Impostazioni predefinite o sbagliate lasciano il servizio più esposto del necessario.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tecnologie" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Tecnologie</h2>
+        </div>
+        <ul class="tech">
+          <li><span class="tech-mono" aria-hidden="true">Dk</span><div><strong>Docker</strong><span class="role">Un container per ogni servizio</span></div></li>
+          <li><span class="tech-mono" aria-hidden="true">Dc</span><div><strong>Docker Compose</strong><span class="role">Orchestrazione di servizi e reti</span></div></li>
+          <li><span class="tech-mono" aria-hidden="true">Fl</span><div><strong>Flask</strong><span class="role">Framework web in Python</span></div></li>
+          <li><span class="tech-mono" aria-hidden="true">Sq</span><div><strong>SQLite</strong><span class="role">Database dei servizi</span></div></li>
+          <li><span class="tech-mono" aria-hidden="true">Py</span><div><strong>Python</strong><span class="role">Linguaggio dei servizi</span></div></li>
+          <li><span class="tech-mono" aria-hidden="true">PS</span><div><strong>PowerShell</strong><span class="role">Script di test automatico</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="test" style="padding-top:0">
+      <div class="wrap split-test">
         <div>
-          <ul class="stack" aria-label="Tecnologie usate">
-            <li>Docker</li>
-            <li>Docker Compose</li>
-            <li>Flask</li>
-            <li>SQLite</li>
-            <li>Python</li>
-            <li>PowerShell</li>
-          </ul>
+          <h2>Test automatico</h2>
+          <p class="lede">Lo script <code>test-lab.ps1</code>, scritto in PowerShell, verifica in automatico il laboratorio.</p>
+        </div>
+        <div class="terminal" role="img" aria-label="Terminale PowerShell che esegue lo script test-lab.ps1">
+          <div class="terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span>PowerShell</span></div>
+          <pre aria-hidden="true"><span class="prompt">PS&gt;</span> .\test-lab.ps1</pre>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="padding-top:0">
       <div class="wrap">
-        <div class="test-box">
-          <h3>Test automatico del laboratorio</h3>
-          <p>Lo script <code>test-lab.ps1</code>, scritto in PowerShell, verifica in automatico il laboratorio.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="cta">
+        <div class="cta band">
           <h2>Vuoi saperne di più sul progetto?</h2>
           <p>Il codice e gli altri lavori sono sul mio profilo GitHub. Per domande sulla tesi o su una collaborazione, scrivimi.</p>
           <div class="btn-row">
@@ -160,7 +344,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer band">
     <div class="wrap">
       <span>© <span data-year>2026</span> Vincenzo Gabriele Florio</span>
       <ul>

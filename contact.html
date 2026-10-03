@@ -7,19 +7,33 @@
   <meta name="description" content="Contatta Vincenzo Gabriele Florio per tesi, collaborazioni e opportunità in cybersecurity e software engineering. Rispondo entro 24 ore.">
   <meta name="author" content="Vincenzo Gabriele Florio">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contatti | Vincenzo Gabriele Florio">
+  <meta property="og:description" content="Tesi, collaborazioni e opportunità in cybersecurity e software engineering. Rispondo entro 24 ore.">
+  <meta property="og:image" content="https://gabrieleflorio28.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
 
-  <header class="site-header">
+  <header class="site-header band">
     <div class="wrap">
-      <a class="brand" href="index.html">Gabriele Florio</a>
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 26 22" aria-hidden="true" focusable="false">
+          <rect x="0" y="0" width="26" height="4" rx="2" fill="#e5604a"/>
+          <rect x="0" y="6" width="19" height="4" rx="2" fill="#5683f2"/>
+          <rect x="0" y="12" width="23" height="4" rx="2" fill="#cc7c14"/>
+          <rect x="0" y="18" width="14" height="4" rx="2" fill="#9a74f2"/>
+        </svg>
+        Gabriele Florio
+      </a>
       <nav class="nav" aria-label="Principale">
         <a href="index.html">Home</a>
         <a href="projects.html">Progetti</a>
@@ -29,53 +43,128 @@
   </header>
 
   <main id="main">
-    <section class="page-head">
-      <div class="wrap">
-        <h1>Contatti</h1>
-        <p class="lede">Sono disponibile per tesi, collaborazioni e opportunità in cybersecurity e software engineering. Rispondo entro 24 ore.</p>
+    <section class="page-hero page-hero--short band">
+      <div class="wrap hero-grid">
+        <div>
+          <ul class="chips">
+            <li class="chip"><span class="dot live" aria-hidden="true"></span>Rispondo entro 24 ore</li>
+            <li class="chip">Catania, Italia</li>
+          </ul>
+          <h1>Scrivimi</h1>
+          <p class="lede">Sono disponibile per tesi, collaborazioni e opportunità in cybersecurity e software engineering.</p>
+        </div>
+
+        <!-- Un messaggio che viaggia da te a me -->
+        <svg class="hero-art" viewBox="0 0 520 300" role="img" aria-label="Illustrazione: un messaggio viaggia da te fino a me, a Catania.">
+          <path class="msg-path" d="M96 214 C 200 60, 330 270, 424 110"/>
+          <circle class="msg-node" cx="96" cy="214" r="44"/>
+          <text class="msg-label" x="96" y="222" text-anchor="middle">Tu</text>
+          <circle class="msg-node" cx="424" cy="110" r="44"/>
+          <text class="msg-label" x="424" y="118" text-anchor="middle">Io</text>
+          <text class="msg-sub" x="424" y="178" text-anchor="middle">Catania</text>
+          <g class="msg-env">
+            <rect x="-26" y="-19" width="52" height="38" rx="7" fill="#eaf0fa"/>
+            <path d="M-26 -11 0 6 26 -11" fill="none" stroke="#0b1220" stroke-width="2.4" stroke-linejoin="round"/>
+          </g>
+        </svg>
       </div>
     </section>
 
-    <section class="section" style="border-top:0; padding-top:0">
-      <div class="wrap contact-grid">
-        <div>
-          <ul class="contact-list">
-            <li>
+    <section class="section" id="canali">
+      <div class="wrap">
+        <div class="channels">
+          <article class="channel channel-main">
+            <div class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+            <div>
               <span class="k">Email</span>
-              <a class="v" href="mailto:Gabriele.Florio28@gmail.com">Gabriele.Florio28@gmail.com</a>
-              <button class="copy-btn" type="button" data-copy="Gabriele.Florio28@gmail.com" aria-label="Copia l'indirizzo email">Copia</button>
-            </li>
-            <li>
+              <span class="v">Gabriele.Florio28@gmail.com</span>
+            </div>
+            <div class="actions">
+              <a class="pill is-primary" href="mailto:Gabriele.Florio28@gmail.com">Scrivi un'email</a>
+              <button class="pill" type="button" data-copy="Gabriele.Florio28@gmail.com" aria-label="Copia l'indirizzo email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span class="t">Copia</span></button>
+            </div>
+          </article>
+
+          <article class="channel" data-lane="sql">
+            <div class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 2.9 8.3 7 10 4.1-1.7 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div>
               <span class="k">PEC</span>
-              <a class="v" href="mailto:Gabriele.Florio28@arubapec.it">Gabriele.Florio28@arubapec.it</a>
-              <button class="copy-btn" type="button" data-copy="Gabriele.Florio28@arubapec.it" aria-label="Copia l'indirizzo PEC">Copia</button>
-            </li>
-            <li>
+              <span class="v">Gabriele.Florio28@arubapec.it</span>
+            </div>
+            <div class="actions">
+              <a class="pill" href="mailto:Gabriele.Florio28@arubapec.it">Scrivi</a>
+              <button class="pill" type="button" data-copy="Gabriele.Florio28@arubapec.it" aria-label="Copia l'indirizzo PEC"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span class="t">Copia</span></button>
+            </div>
+          </article>
+
+          <article class="channel" data-lane="priv">
+            <div class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+            <div>
               <span class="k">Telefono</span>
-              <a class="v" href="tel:+393420289063">+39 342 028 9063</a>
-              <button class="copy-btn" type="button" data-copy="+39 342 028 9063" aria-label="Copia il numero di telefono">Copia</button>
-            </li>
-            <li>
+              <span class="v">+39 342 028 9063</span>
+            </div>
+            <div class="actions">
+              <a class="pill" href="tel:+393420289063">Chiama</a>
+              <button class="pill" type="button" data-copy="+39 342 028 9063" aria-label="Copia il numero di telefono"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span class="t">Copia</span></button>
+            </div>
+          </article>
+
+          <article class="channel" data-lane="misc">
+            <div class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <div>
               <span class="k">Dove</span>
               <span class="v">Catania, Italia</span>
-              <span></span>
-            </li>
-            <li>
+            </div>
+          </article>
+
+          <article class="channel" data-lane="auth">
+            <div class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+            <div>
               <span class="k">LinkedIn</span>
-              <a class="v" href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener">Vincenzo Gabriele Florio</a>
-              <span></span>
-            </li>
-            <li>
+              <span class="v">Vincenzo Gabriele Florio</span>
+            </div>
+            <div class="actions">
+              <a class="pill" href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener">Apri il profilo</a>
+            </div>
+          </article>
+
+          <article class="channel" data-lane="sql">
+            <div class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></div>
+            <div>
               <span class="k">GitHub</span>
-              <a class="v" href="https://github.com/GabrieleFlorio28" rel="noopener">GabrieleFlorio28</a>
-              <span></span>
-            </li>
+              <span class="v">GabrieleFlorio28</span>
+            </div>
+            <div class="actions">
+              <a class="pill" href="https://github.com/GabrieleFlorio28" rel="noopener">Apri il profilo</a>
+            </div>
+          </article>
+
+          <article class="channel" data-lane="priv">
+            <div class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div>
+              <span class="k">Tempi di risposta</span>
+              <span class="v">Entro 24 ore</span>
+            </div>
+          </article>
+        </div>
+        <p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
+      </div>
+    </section>
+
+    <section class="section" id="messaggio" style="padding-top:0">
+      <div class="wrap contact-grid">
+        <div>
+          <h2>Di cosa vuoi parlare?</h2>
+          <p class="lede">Scegli un argomento e compilo io l'oggetto. Il resto lo scrivi tu.</p>
+          <ul class="topics" aria-label="Argomento del messaggio">
+            <li><button class="topic" type="button" data-t="tesi" data-subject="Domanda sulla tesi" aria-pressed="false"><span class="bar"></span><span class="txt"><strong>Tesi</strong><small>Domande sul Vulnerable Lab o sul mio lavoro di tesi</small></span></button></li>
+            <li><button class="topic" type="button" data-t="collab" data-subject="Proposta di collaborazione" aria-pressed="false"><span class="bar"></span><span class="txt"><strong>Collaborazione</strong><small>Progetti, laboratori, CTF</small></span></button></li>
+            <li><button class="topic" type="button" data-t="lavoro" data-subject="Opportunità di lavoro" aria-pressed="false"><span class="bar"></span><span class="txt"><strong>Opportunità di lavoro</strong><small>Cybersecurity o software engineering</small></span></button></li>
           </ul>
-          <p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
         </div>
 
         <form class="form" data-mailto-form novalidate>
-          <h2>Scrivimi un messaggio</h2>
+          <h3>Il tuo messaggio</h3>
           <div class="field">
             <label for="nome">Nome o azienda</label>
             <input id="nome" name="nome" type="text" autocomplete="name" required>
@@ -89,8 +178,8 @@
             <input id="oggetto" name="oggetto" type="text" required>
           </div>
           <div class="field">
-            <label for="messaggio">Messaggio</label>
-            <textarea id="messaggio" name="messaggio" required></textarea>
+            <label for="messaggio-testo">Messaggio</label>
+            <textarea id="messaggio-testo" name="messaggio" required></textarea>
           </div>
           <button class="btn btn-solid" type="submit">Prepara l'email</button>
           <p class="form-note" data-form-note>Il pulsante apre il tuo programma di posta con il messaggio già compilato. Nulla viene inviato finché non premi invio nel tuo client.</p>
@@ -99,7 +188,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer band">
     <div class="wrap">
       <span>© <span data-year>2026</span> Vincenzo Gabriele Florio</span>
       <ul>

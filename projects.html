@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Progetti | Vincenzo Gabriele Florio</title>
-  <meta name="description" content="Vulnerable Lab: laboratorio didattico containerizzato con Docker e Docker Compose per lo studio pratico delle vulnerabilità web e applicative. Tesi triennale in Informatica, Università di Catania.">
+  <meta name="description" content="Dettagli del progetto di tesi 'Vulnerable Lab' — laboratorio didattico containerizzato con Docker per lo studio delle vulnerabilità di sicurezza. Di Vincenzo Gabriele Florio.">
   <meta name="author" content="Vincenzo Gabriele Florio">
   <meta name="color-scheme" content="light dark">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -30,98 +31,304 @@
   </header>
 
   <main id="main">
-    <section class="page-head">
+    <!-- Project Hero Section -->
+    <section class="section page-head reveal">
       <div class="wrap">
-        <h1>Vulnerable Lab</h1>
-        <p class="lede">Laboratorio didattico containerizzato. Un ambiente multi-container controllato, progettato con Docker e Docker Compose, per lo studio pratico delle vulnerabilità web e applicative più comuni.</p>
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          Thesis Project
+        </div>
+        <h1>Progetto di Tesi</h1>
+        <p class="lede" style="font-family: var(--f-code); color: var(--neon-cyan); margin-top: 0.5rem; font-size: clamp(1.1rem, 2.5vw, 1.4rem);">
+          Vulnerable Lab — Laboratorio Didattico Containerizzato
+        </p>
+        <p style="color: var(--muted); max-width: 65ch; margin-top: 0.75rem; font-size: 1.1rem; line-height: 1.7;">
+          Un ambiente multi-container controllato, progettato con Docker e Docker Compose, per lo studio pratico delle vulnerabilità web e applicative più comuni. Ogni scenario è un servizio Flask indipendente, isolato nella propria rete Docker dedicata.
+        </p>
+
+        <!-- Project Metadata Grid -->
+        <div class="project-meta-grid">
+          <div class="meta-item">
+            <strong><i class="fa-solid fa-graduation-cap"></i> TIPO DI PROGETTO</strong>
+            Tesi di Laurea Triennale in Informatica
+          </div>
+          <div class="meta-item">
+            <strong><i class="fa-solid fa-calendar-check"></i> DATA DI LAUREA</strong>
+            25 Settembre 2026
+          </div>
+          <div class="meta-item">
+            <strong><i class="fa-solid fa-microchip"></i> TECNOLOGIE CHIAVE</strong>
+            Docker, Docker Compose, Flask, SQLite, Python
+          </div>
+          <div class="meta-item">
+            <strong><i class="fa-solid fa-building-columns"></i> UNIVERSITÀ</strong>
+            Università degli Studi di Catania
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section" style="border-top:0; padding-top:0">
+    <!-- Abstract — Terminal Card -->
+    <section class="section reveal" style="padding-top: 0;">
       <div class="wrap">
-        <dl class="facts">
-          <div>
-            <dt>Tipo</dt>
-            <dd>Tesi di laurea triennale in Informatica</dd>
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">cat tesi_abstract.txt</div>
+            <div></div>
           </div>
-          <div>
-            <dt>Università</dt>
-            <dd>Università degli Studi di Catania</dd>
+          <div class="terminal-body">
+            <p>
+              La containerizzazione occupa oggi un ruolo centrale nello sviluppo e nella distribuzione del software: permette di eseguire servizi in ambienti isolati, riproducibili e trasferibili tra sistemi differenti. L'uso dei container, tuttavia, non rende un'applicazione automaticamente sicura. Vulnerabilità nel codice, configurazioni errate e scelte di isolamento poco rigorose possono compromettere l'intero ambiente.
+            </p>
+            <p>
+              <strong style="color: var(--neon-cyan);">Vulnerable Lab</strong> è un laboratorio didattico multi-container in cui osservare alcune vulnerabilità applicative e infrastrutturali in condizioni controllate. Ogni scenario è implementato come un servizio Flask distinto, orchestrato da Docker Compose e collocato in una rete virtuale dedicata (<code>sql_net</code>, <code>auth_net</code>, <code>priv_net</code>, <code>misconf_net</code>), garantendo l'isolamento tra i servizi.
+            </p>
+            <p>
+              La validazione è affidata a uno script PowerShell automatizzato (<code>test-lab.ps1</code>) che invia richieste HTTP con payload d'attacco a ciascuno scenario, verificando le risposte. Il risultato è uno strumento leggero e riproducibile per comprendere praticamente la relazione tra codice debole, configurazioni errate e politiche di isolamento.
+            </p>
           </div>
-          <div>
-            <dt>Discussione</dt>
-            <dd>25 settembre 2026</dd>
-          </div>
-          <div>
-            <dt>Servizi e reti</dt>
-            <dd>4 servizi, 4 reti isolate</dd>
-          </div>
-        </dl>
+        </div>
       </div>
     </section>
 
+    <!-- Interactive Lab Architecture Diagram -->
     <section class="section reveal">
       <div class="wrap">
         <div class="section-head">
-          <h2>Architettura</h2>
-          <p class="lede">Ogni scenario gira in un servizio Docker separato, collegato a una rete dedicata. Seleziona una rete per vedere lo scenario.</p>
+          <h2>Esplora l'Architettura del Lab</h2>
+          <p class="lede">Fai clic su un nodo del diagramma di rete interattivo per visualizzare i dettagli tecnici di quel container, inclusi gli scenari di vulnerabilità simulati, i metodi di attacco ed i meccanismi difensivi implementati.</p>
         </div>
 
-        <div class="lab" data-lab>
-          <div class="lab-grid">
-            <div class="lab-host">
-              <strong>Docker Compose</strong>
-              <span>Un host, quattro servizi, quattro reti dedicate</span>
+        <div class="lab-section">
+          <!-- SVG Diagram -->
+          <div class="diagram-container">
+            <div class="diagram-svg-wrapper">
+              <svg viewBox="0 0 500 400" width="100%" height="100%" id="network-svg" role="img" aria-label="Diagramma di rete interattivo del Vulnerable Lab">
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="18" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#4d5f80"/>
+                  </marker>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Edges: Compose orchestrator to each service -->
+                <line x1="250" y1="60" x2="100" y2="160" stroke="#00e5ff" stroke-width="1.5" class="svg-edge" />
+                <line x1="250" y1="60" x2="400" y2="160" stroke="#00e5ff" stroke-width="1.5" class="svg-edge" />
+                <line x1="250" y1="60" x2="130" y2="280" stroke="#00e5ff" stroke-width="1.5" class="svg-edge" />
+                <line x1="250" y1="60" x2="370" y2="280" stroke="#00e5ff" stroke-width="1.5" class="svg-edge" />
+
+                <!-- Test Script connections (dashed purple) -->
+                <line x1="250" y1="360" x2="100" y2="160" stroke="#a855f7" stroke-width="1.2" stroke-dasharray="3" />
+                <line x1="250" y1="360" x2="400" y2="160" stroke="#a855f7" stroke-width="1.2" stroke-dasharray="3" />
+                <line x1="250" y1="360" x2="130" y2="280" stroke="#a855f7" stroke-width="1.2" stroke-dasharray="3" />
+                <line x1="250" y1="360" x2="370" y2="280" stroke="#a855f7" stroke-width="1.2" stroke-dasharray="3" />
+
+                <!-- Nodes -->
+                <g class="svg-node" data-target="node-compose" id="node-compose" tabindex="0" role="button" aria-label="Docker Compose Orchestrator">
+                  <circle cx="250" cy="60" r="24" fill="#060a12" stroke="#00e5ff" style="color: #00e5ff;" />
+                  <text x="250" y="64">Docker Compose</text>
+                </g>
+
+                <g class="svg-node" data-target="node-sqli" id="node-sqli" tabindex="0" role="button" aria-label="Scenario SQL Injection">
+                  <circle cx="100" cy="160" r="22" fill="#060a12" stroke="#ff4d6a" style="color: #ff4d6a;" />
+                  <text x="100" y="164">SQLi :5000</text>
+                </g>
+
+                <g class="svg-node" data-target="node-auth" id="node-auth" tabindex="0" role="button" aria-label="Scenario Broken Authentication">
+                  <circle cx="400" cy="160" r="22" fill="#060a12" stroke="#ff4d6a" style="color: #ff4d6a;" />
+                  <text x="400" y="164">Auth :5001</text>
+                </g>
+
+                <g class="svg-node" data-target="node-privilege" id="node-privilege" tabindex="0" role="button" aria-label="Scenario Privilege Escalation">
+                  <circle cx="130" cy="280" r="22" fill="#060a12" stroke="#ff4d6a" style="color: #ff4d6a;" />
+                  <text x="130" y="284">PrivEsc :5002</text>
+                </g>
+
+                <g class="svg-node" data-target="node-misconfig" id="node-misconfig" tabindex="0" role="button" aria-label="Scenario Security Misconfiguration">
+                  <circle cx="370" cy="280" r="22" fill="#060a12" stroke="#ff4d6a" style="color: #ff4d6a;" />
+                  <text x="370" y="284">Misconfig :5003</text>
+                </g>
+
+                <g class="svg-node" data-target="node-tester" id="node-tester" tabindex="0" role="button" aria-label="Script di test automatico">
+                  <circle cx="250" cy="360" r="22" fill="#060a12" stroke="#00ff88" style="color: #00ff88;" />
+                  <text x="250" y="364">test-lab.ps1</text>
+                </g>
+
+                <!-- Subnet Labels -->
+                <text x="140" y="100" fill="#8b9cc0" font-size="8.5" font-family="'JetBrains Mono', monospace">sql_net</text>
+                <text x="340" y="100" fill="#8b9cc0" font-size="8.5" font-family="'JetBrains Mono', monospace">auth_net</text>
+                <text x="130" y="220" fill="#8b9cc0" font-size="8.5" font-family="'JetBrains Mono', monospace">priv_net</text>
+                <text x="350" y="220" fill="#8b9cc0" font-size="8.5" font-family="'JetBrains Mono', monospace">misconf_net</text>
+              </svg>
             </div>
-            <ul class="lanes" aria-label="Scenari del Vulnerable Lab">
-              <li>
-                <button class="lane" type="button" data-lane="sql" aria-pressed="true">
-                  <span class="lane-bar"></span>
-                  <span><span class="lane-name">SQL Injection</span><span class="lane-net">sql_net</span></span>
-                  <span class="lane-port">:5000</span>
-                </button>
-              </li>
-              <li>
-                <button class="lane" type="button" data-lane="auth" aria-pressed="false">
-                  <span class="lane-bar"></span>
-                  <span><span class="lane-name">Broken Authentication</span><span class="lane-net">auth_net</span></span>
-                  <span class="lane-port">:5001</span>
-                </button>
-              </li>
-              <li>
-                <button class="lane" type="button" data-lane="priv" aria-pressed="false">
-                  <span class="lane-bar"></span>
-                  <span><span class="lane-name">Privilege Escalation</span><span class="lane-net">priv_net</span></span>
-                  <span class="lane-port">:5002</span>
-                </button>
-              </li>
-              <li>
-                <button class="lane" type="button" data-lane="misc" aria-pressed="false">
-                  <span class="lane-bar"></span>
-                  <span><span class="lane-name">Security Misconfiguration</span><span class="lane-net">misconf_net</span></span>
-                  <span class="lane-port">:5003</span>
-                </button>
-              </li>
-            </ul>
+            <div class="diagram-caption">
+              <i class="fa-solid fa-circle-info"></i> Clicca sui nodi per analizzare i dettagli del container
+            </div>
           </div>
 
-          <div class="lab-panel" data-panel aria-live="polite">
-            <div>
-              <h3 data-p-title>SQL Injection</h3>
-              <dl>
-                <dt>Rete</dt><dd data-p-net>sql_net</dd>
-                <dt>Porta</dt><dd data-p-port>5000</dd>
-              </dl>
+          <!-- Info Details Panel -->
+          <div class="terminal-card" style="margin-bottom: 0; min-height: 440px;">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title">inspect_container.sh</div>
+              <div></div>
             </div>
-            <div>
-              <p data-p-summary>Scenario dedicato alla SQL Injection, isolato nella rete sql_net.</p>
-              <p data-p-what>In breve: input non filtrato che permette di alterare le query inviate al database.</p>
+            <div class="terminal-body details-panel">
+              <!-- Placeholder -->
+              <div class="placeholder-detail" id="details-placeholder">
+                <i class="fa-solid fa-network-wired"></i>
+                <p style="font-family: var(--f-code); font-size: 0.88rem;">
+                  Seleziona un container nel diagramma a sinistra per ispezionare lo stato del servizio, la configurazione della rete ed il focus della vulnerabilità.
+                </p>
+              </div>
+
+              <!-- 1. Docker Compose Orchestrator -->
+              <div class="active-detail" id="detail-node-compose">
+                <div class="detail-header">
+                  <h3>Docker Compose — Orchestrazione</h3>
+                  <div class="detail-network">File: docker-compose.yml | 4 servizi, 4 reti isolate</div>
+                </div>
+                <p class="detail-desc">
+                  Docker Compose orchestra l'intero laboratorio definendo quattro servizi indipendenti, ciascuno costruito dal proprio Dockerfile e collocato nella propria rete Docker dedicata. Ogni servizio espone una porta diversa sull'host locale (5000–5003).
+                </p>
+                <div class="detail-tech-stack">
+                  <span class="skill-tag">Docker</span>
+                  <span class="skill-tag">Docker Compose</span>
+                  <span class="skill-tag">Dockerfile</span>
+                </div>
+                <div class="detail-vuln-box" style="background: rgba(0, 229, 255, 0.05); border-color: rgba(0, 229, 255, 0.22);">
+                  <strong style="color: var(--neon-cyan);">ISOLAMENTO ARCHITETTURALE</strong>
+                  Ogni scenario è assegnato ad una rete Docker separata (<code>sql_net</code>, <code>auth_net</code>, <code>priv_net</code>, <code>misconf_net</code>). I container non condividono la stessa rete e non possono comunicare direttamente tra loro, limitando la superficie d'attacco laterale in caso di compromissione di un singolo servizio.
+                </div>
+              </div>
+
+              <!-- 2. SQL Injection -->
+              <div class="active-detail" id="detail-node-sqli">
+                <div class="detail-header">
+                  <h3>SQL Injection Scenario</h3>
+                  <div class="detail-network">Rete: sql_net | Porta: localhost:5000</div>
+                </div>
+                <p class="detail-desc">
+                  Applicazione Flask vulnerabile che utilizza SQLite come database. I parametri di ricerca inviati tramite query string (<code>/search?q=</code>) vengono concatenati direttamente nelle query SQL senza sanitizzazione né parametrizzazione, permettendo l'iniezione arbitraria di codice SQL.
+                </p>
+                <div class="detail-tech-stack">
+                  <span class="skill-tag">Python (Flask)</span>
+                  <span class="skill-tag">SQLite</span>
+                </div>
+                <div class="detail-vuln-box">
+                  <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                  L'endpoint <code>/search?q=</code> accetta input non filtrato. Inserendo payload come <code>' OR '1'='1</code> nel parametro di ricerca, l'attaccante può estrarre l'intero contenuto del database, bypassare controlli di autenticazione e manipolare i dati. L'endpoint <code>/init</code> inizializza il database con dati di esempio.
+                  <br><br>
+                  <strong style="color: var(--neon-green);">MITIGAZIONE:</strong> Utilizzo di Prepared Statements (query parametrizzate) per separare rigidamente la logica SQL dai dati inseriti dall'utente, impedendo l'esecuzione di codice iniettato.
+                </div>
+              </div>
+
+              <!-- 3. Broken Authentication -->
+              <div class="active-detail" id="detail-node-auth">
+                <div class="detail-header">
+                  <h3>Broken Authentication</h3>
+                  <div class="detail-network">Rete: auth_net | Porta: localhost:5001</div>
+                </div>
+                <p class="detail-desc">
+                  Applicazione Flask con un sistema di autenticazione volutamente insicuro: le credenziali utente sono memorizzate in chiaro nel codice sorgente come dizionario Python (<code>alice:password123</code>, <code>bob:qwerty</code>), senza alcun meccanismo di hashing o salting.
+                </p>
+                <div class="detail-tech-stack">
+                  <span class="skill-tag">Python (Flask)</span>
+                  <span class="skill-tag">Plaintext Passwords</span>
+                </div>
+                <div class="detail-vuln-box">
+                  <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                  Le password sono conservate in chiaro nel codice sorgente. L'endpoint <code>/login</code> accetta credenziali via POST e le confronta direttamente con il dizionario in memoria. Un attaccante che ottiene accesso al codice sorgente o al container può leggere immediatamente tutte le credenziali. L'uso di password deboli (<code>password123</code>, <code>qwerty</code>) rende il sistema vulnerabile ad attacchi di forza bruta.
+                  <br><br>
+                  <strong style="color: var(--neon-green);">MITIGAZIONE:</strong> Hashing delle password con algoritmi robusti (bcrypt, argon2), utilizzo di salt univoci per ogni utente, e conservazione delle credenziali in un database separato con accesso controllato.
+                </div>
+              </div>
+
+              <!-- 4. Privilege Escalation -->
+              <div class="active-detail" id="detail-node-privilege">
+                <div class="detail-header">
+                  <h3>Privilege Escalation</h3>
+                  <div class="detail-network">Rete: priv_net | Porta: localhost:5002</div>
+                </div>
+                <p class="detail-desc">
+                  Scenario Flask che simula un servizio con accesso improprio a risorse privilegiate. Il container illustra come un'errata configurazione dei permessi o il montaggio di risorse sensibili dell'host possa permettere l'escalazione dei privilegi.
+                </p>
+                <div class="detail-tech-stack">
+                  <span class="skill-tag">Python (Flask)</span>
+                  <span class="skill-tag">Docker Volumes</span>
+                </div>
+                <div class="detail-vuln-box">
+                  <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                  Il servizio espone funzionalità che permettono l'accesso a risorse che dovrebbero essere ristrette. Un utente non privilegiato può sfruttare endpoint non protetti per ottenere informazioni o eseguire operazioni che richiederebbero permessi elevati, dimostrando l'importanza del principio di Least Privilege nella progettazione dei container.
+                  <br><br>
+                  <strong style="color: var(--neon-green);">MITIGAZIONE:</strong> Applicare il principio di Least Privilege: eseguire i processi con utenti non-root, limitare i volume mounts allo stretto necessario, e utilizzare container rootless o policy di sicurezza (seccomp, AppArmor).
+                </div>
+              </div>
+
+              <!-- 5. Security Misconfiguration -->
+              <div class="active-detail" id="detail-node-misconfig">
+                <div class="detail-header">
+                  <h3>Security Misconfiguration</h3>
+                  <div class="detail-network">Rete: misconf_net | Porta: localhost:5003</div>
+                </div>
+                <p class="detail-desc">
+                  Applicazione Flask avviata con la variabile d'ambiente <code>DEBUG_MODE=true</code> impostata nel <code>docker-compose.yml</code>. Simula un errore di configurazione tipico in ambienti di produzione: modalità debug attiva, esposizione di informazioni interne e messaggi di errore dettagliati.
+                </p>
+                <div class="detail-tech-stack">
+                  <span class="skill-tag">Python (Flask)</span>
+                  <span class="skill-tag">Environment Variables</span>
+                  <span class="skill-tag">DEBUG_MODE</span>
+                </div>
+                <div class="detail-vuln-box">
+                  <strong>VULNERABILITÀ E ATTACCO SIMULATO</strong>
+                  La variabile <code>DEBUG_MODE=true</code> definita nel Compose attiva la modalità debug di Flask, che espone il debugger interattivo di Werkzeug in caso di errore. Un attaccante può provocare un'eccezione ed accedere alla console di debug, eseguendo codice Python arbitrario sul server. I messaggi di errore dettagliati rivelano stack trace, percorsi di file e variabili d'ambiente.
+                  <br><br>
+                  <strong style="color: var(--neon-green);">MITIGAZIONE:</strong> Non impostare mai <code>DEBUG_MODE</code> o <code>FLASK_DEBUG</code> in ambienti di produzione. Utilizzare variabili d'ambiente gestite in modo sicuro, disabilitare messaggi di errore verbosi e implementare pagine di errore personalizzate.
+                </div>
+              </div>
+
+              <!-- 6. Test Script -->
+              <div class="active-detail" id="detail-node-tester">
+                <div class="detail-header">
+                  <h3>Script Automatico di Test</h3>
+                  <div class="detail-network">Script: scripts/test-lab.ps1 | Host locale</div>
+                </div>
+                <p class="detail-desc">
+                  Uno script PowerShell (<code>test-lab.ps1</code>) che automatizza la verifica del laboratorio. Lo script invia richieste HTTP ai vari endpoint vulnerabili con payload d'attacco predefiniti, verifica le risposte ricevute e produce un report sullo stato di ciascuno scenario.
+                </p>
+                <div class="detail-tech-stack">
+                  <span class="skill-tag">PowerShell</span>
+                  <span class="skill-tag">Invoke-WebRequest</span>
+                  <span class="skill-tag">Automazione Test</span>
+                </div>
+                <div class="detail-vuln-box" style="background: rgba(0, 255, 136, 0.05); border-color: rgba(0, 255, 136, 0.2);">
+                  <strong style="color: var(--neon-green);">VERIFICA E VALIDAZIONE</strong>
+                  Lo script testa automaticamente ciascun endpoint: invia query SQL malevole a <code>:5000</code>, tenta login con credenziali deboli su <code>:5001</code>, verifica l'accesso a risorse privilegiate su <code>:5002</code> e controlla l'esposizione del debugger su <code>:5003</code>. I risultati vengono confrontati con le risposte attese per validare il corretto funzionamento degli scenari.
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Technologies Section -->
     <section class="section reveal">
       <div class="wrap split">
         <h2>Tecnologie</h2>
@@ -138,22 +345,24 @@
       </div>
     </section>
 
+    <!-- Automatic Testing Box -->
     <section class="section reveal">
       <div class="wrap">
         <div class="test-box">
           <h3>Test automatico del laboratorio</h3>
-          <p>Lo script <code>test-lab.ps1</code>, scritto in PowerShell, verifica in automatico il laboratorio.</p>
+          <p>Lo script <code>test-lab.ps1</code>, scritto in PowerShell, verifica in automatico il laboratorio inviando richieste mirate ad ogni endpoint e verificando sia l'exploitability che l'isolamento di rete.</p>
         </div>
       </div>
     </section>
 
+    <!-- Call to Action -->
     <section class="section reveal">
       <div class="wrap">
         <div class="cta">
           <h2>Vuoi saperne di più sul progetto?</h2>
-          <p>Il codice e gli altri lavori sono sul mio profilo GitHub. Per domande sulla tesi o su una collaborazione, scrivimi.</p>
+          <p>Il codice completo e gli altri lavori sono disponibili sul mio profilo GitHub. Per domande sulla tesi o per una collaborazione, scrivimi.</p>
           <div class="btn-row">
-            <a class="btn btn-solid" href="https://github.com/GabrieleFlorio28" rel="noopener">Apri GitHub</a>
+            <a class="btn btn-solid" href="https://github.com/GabrieleFlorio28" rel="noopener" target="_blank">Apri GitHub</a>
             <a class="btn" href="contact.html">Contattami</a>
           </div>
         </div>
@@ -165,13 +374,14 @@
     <div class="wrap">
       <span>© <span data-year>2026</span> Vincenzo Gabriele Florio</span>
       <ul>
-        <li><a href="https://github.com/GabrieleFlorio28" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/GabrieleFlorio28" rel="noopener" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/vincenzo-gabriele-florio-73456a181/" rel="noopener" target="_blank">LinkedIn</a></li>
         <li><a href="mailto:Gabriele.Florio28@gmail.com">Gabriele.Florio28@gmail.com</a></li>
       </ul>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/diagram.js"></script>
 </body>
 </html>

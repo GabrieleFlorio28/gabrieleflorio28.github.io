@@ -108,18 +108,38 @@
   var form = document.querySelector("[data-mailto-form]");
   if (form) {
     var note = form.querySelector("[data-form-note]");
+    var errorMsgs = {
+      nome: "Inserisci il tuo nome",
+      email: "Inserisci un indirizzo email valido",
+      oggetto: "Inserisci l'oggetto del messaggio",
+      messaggio: "Scrivi un messaggio"
+    };
+
+    function showFieldError(field, show) {
+      var errEl = document.getElementById(field.name + "-error");
+      if (!errEl) return;
+      errEl.textContent = show ? (errorMsgs[field.name] || "Campo obbligatorio") : "";
+      errEl.classList.toggle("is-active", show);
+      field.setAttribute("aria-invalid", String(show));
+    }
+
+    form.querySelectorAll("input, textarea").forEach(function (f) {
+      f.addEventListener("input", function () {
+        if (f.checkValidity()) showFieldError(f, false);
+      });
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
       var firstInvalid = null;
       form.querySelectorAll("input, textarea").forEach(function (f) {
         var bad = !f.checkValidity();
-        f.setAttribute("aria-invalid", String(bad));
+        showFieldError(f, bad);
         if (bad && !firstInvalid) firstInvalid = f;
       });
 
       if (firstInvalid) {
-        note.textContent = "Compila tutti i campi, con un indirizzo email valido.";
         firstInvalid.focus();
         return;
       }
@@ -136,5 +156,35 @@
       note.textContent = "Ho aperto il tuo programma di posta. Premi invio lì per spedire il messaggio.";
       window.location.href = url;
     });
+  }
+  // ---------- Scroll reveal ----------
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+
+  // ---------- Scroll progress bar ----------
+  var progressBar = document.querySelector(".scroll-progress");
+  if (progressBar) {
+    window.addEventListener("scroll", function () {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + "%";
+    }, { passive: true });
   }
 })();
